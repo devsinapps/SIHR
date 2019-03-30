@@ -3,7 +3,7 @@ import {createInformation} from './../../../store/actions/informationActions'
 import { connect } from 'react-redux'
 import { Form, FormGroup, Label, Input, CustomInput, Button } from 'reactstrap'
 //mdbreact
-import { MDBBtn } from 'mdbreact'
+import { MDBBtn, MDBIcon } from 'mdbreact'
 
 class CreateInformation extends Component{
 	state = {
@@ -58,7 +58,9 @@ class CreateInformation extends Component{
 					/>
 				</FormGroup>
 				<FormGroup>
-					<MDBBtn block disabled={!enabled}> Posting </MDBBtn>
+					<MDBBtn color="info" block disabled={!enabled}>
+		        		<MDBIcon icon="paper-plane" className="mr-1" />  Posting
+			        </MDBBtn>
 				</FormGroup>
 			</Form>
 		)

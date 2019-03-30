@@ -3,7 +3,7 @@ import { createRequests } from './../../../store/actions/requestsActions'
 import { connect } from 'react-redux'
 import { Form, FormGroup, Label, Input, Button, CustomInput } from 'reactstrap'
 //mdbreact
-import { MDBBtn } from 'mdbreact'
+import { MDBBtn, MDBIcon } from 'mdbreact'
 class CreateRequests extends React.Component{
 	render(){
 		const { value } = this.props
@@ -29,7 +29,9 @@ class CreateRequests extends React.Component{
 						<textarea type='text' className='form-control' id='content' onChange={this.props.onChange}/>
 					</FormGroup>
 					<FormGroup>
-						<MDBBtn block onClick={()=>this.props.formAction('SAVE', '')} disabled={!enabled}> Request </MDBBtn>
+						<MDBBtn block color="info" onClick={()=>this.props.formAction('SAVE', '')} disabled={!enabled}>
+			        		<MDBIcon icon="pen-alt" className="mr-1" /> Request
+				        </MDBBtn>
 					</FormGroup>
 				</Form>
 			</div>

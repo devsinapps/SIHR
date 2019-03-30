@@ -216,7 +216,7 @@ html body {
               html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-4 .card:nth-child(1) .card-body .ProfilePict img:hover {
                 box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5); }
           html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-4 .card:nth-child(1) .card-body ul li {
-            margin-left: 30px; }
+            margin-left: 15px; }
             html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-4 .card:nth-child(1) .card-body ul li svg {
               margin-right: 10px; }
             html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-4 .card:nth-child(1) .card-body ul li span {
@@ -490,7 +490,7 @@ html body {
               cursor: pointer;
               top: 0;
               right: 10px;
-              top: 4px; }
+              top: 7px; }
           html body #root .App .Content-Auth .SignIn .container .row .col-lg-5 .card .card-body .info {
             position: absolute;
             bottom: 10px;
@@ -507,7 +507,7 @@ html body {
             cursor: pointer;
             top: 0;
             right: 10px;
-            top: 5px; }
+            top: 7px; }
   html body .Btn_Modal {
     border-radius: 0;
     background-color: #fdfdfd;

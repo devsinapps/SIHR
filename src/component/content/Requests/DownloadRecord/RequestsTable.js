@@ -25,7 +25,7 @@ class RequestsTable extends React.Component{
 						</tr>
 					</MDBTableHead>
 					<MDBTableBody>
-						{dataRoutes.firestore.ordered.requests.map((request)=>{
+						{dataRoutes.firestore.ordered.requests && dataRoutes.firestore.ordered.requests.map((request)=>{
 							if(request.status != 'waiting'){
 								return(
 									<tr>
@@ -41,7 +41,7 @@ class RequestsTable extends React.Component{
 							}else{
 								return null
 							}
-						})
+							})
 						}
 					</MDBTableBody>
 				</MDBTable>

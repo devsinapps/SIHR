@@ -65,13 +65,13 @@ class FormUser
 			</Row>
 			<FormGroup className="text-center">
 				<MDBBtn color="warning"  onClick={()=>this.props.formAction('UPDATE', '')} disabled={!config.enabled}>
-	        		<MDBIcon icon="magic" className="mr-1" /> Update
+	        		<MDBIcon icon="file-contract" className="mr-1" /> Update
 		        </MDBBtn>
 		        <MDBBtn color="danger"  onClick={()=>this.props.formAction('DELETE', '')} disabled={!config.enabled}>
-	        		<MDBIcon icon="magic" className="mr-1" /> Delete
+	        		<MDBIcon icon="trash" className="mr-1" /> Delete
 		        </MDBBtn>
 		        <MDBBtn color="info"  onClick={()=>this.props.formAction('RESET', '')}>
-	        		<MDBIcon icon="magic" className="mr-1" /> Reset
+	        		<MDBIcon icon="retweet" className="mr-1" />  Reset
 		        </MDBBtn>
 			</FormGroup>
 		</Form>

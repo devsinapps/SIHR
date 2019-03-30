@@ -174,16 +174,16 @@ class EmployeeForm extends React.Component{
 				</Row>
 				<FormGroup className='text-center'>
 					<MDBBtn color="primary"  onClick={()=>this.props.formAction('SAVE', '')} disabled={!config.enabled}>
-		        		<MDBIcon icon="magic" className="mr-1" /> Save
+		        		<MDBIcon icon="file-signature" className="mr-1" /> Save
 			        </MDBBtn>
 			        <MDBBtn color="warning"  onClick={()=>this.props.formAction('UPDATE', '')} disabled={!config.enabledUpdDel}>
-		        		<MDBIcon icon="magic" className="mr-1" /> Update
+		        		<MDBIcon icon="file-contract" className="mr-1" /> Update
 			        </MDBBtn>
 			        <MDBBtn color="info"  onClick={()=>this.props.formAction('RESET', '')}>
-		        		<MDBIcon icon="magic" className="mr-1" /> Reset
+		        		<MDBIcon icon="retweet" className="mr-1" /> Reset
 			        </MDBBtn>
 					<MDBBtn color="danger"  onClick={()=>this.props.formAction('DELETE', '')} disabled={!config.enabledUpdDel}>
-		        		<MDBIcon icon="magic" className="mr-1" /> Delete
+		        		<MDBIcon icon="trash" className="mr-1" /> Delete
 			        </MDBBtn>
 				</FormGroup>
 			</Form>

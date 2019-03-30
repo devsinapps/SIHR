@@ -3,7 +3,7 @@ import {inputKanban} from './../../../store/actions/kanbanActions'
 import { connect } from 'react-redux' 
 import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 //mdbreact
-import { MDBBtn } from 'mdbreact'
+import { MDBBtn, MDBIcon } from 'mdbreact'
 class CreateKanban extends Component{
 	render(){
 		const { dataState } = this.props
@@ -51,7 +51,9 @@ class CreateKanban extends Component{
 						<Col md='3'>
 							<FormGroup>
 								<Label className='labelForm'> &nbsp; </Label>
-								<MDBBtn block onClick={()=>this.props.formAction('SAVE')} disabled={!enabled}> Posting </MDBBtn>
+								 <MDBBtn block color="info" onClick={()=>this.props.formAction('SAVE')} disabled={!enabled}>
+					        		<MDBIcon icon="paper-plane" className="mr-1" /> Posting
+						        </MDBBtn>
 							</FormGroup>
 						</Col>
 					</Row>
