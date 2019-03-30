@@ -1,0 +1,1535 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Oxygen');
+
+%ul-reset{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+%breadcrumb-style{
+	ol{
+		background-image: linear-gradient(to right, #f1f2f6, #ffffff);
+		border-radius: 0;										
+		li{
+			height: 35px;
+			a{
+				font-size: 25px;
+				line-height: 35px;
+			}
+		}
+	}
+}
+
+html{
+	body{
+		font-family: 'Noto Sans JP', sans-serif;
+		background-color: #ecf0f1;
+		#root{
+			.App{
+				position: relative;
+				.SideNav{
+					position: relative;
+					.LeftSide{
+						position: fixed;
+						width: 230px;
+						height: 100vh;
+						left: 0;
+						background-color: #ffffff;
+						transition: all .3s;
+						overflow: hidden;
+						z-index: 2;
+						._Header{
+							height: 50px;
+
+							text-align: center;
+							h1{
+								font-size: 30px;
+								line-height: 50px;
+								color: #2d3436;
+							}
+						}
+						._mainMenu{
+							position: relative;
+							height: 300px;
+							overflow: hidden;
+							overflow-y: auto;
+							ul{
+								@extend %ul-reset;
+								li{
+									height: 50px;
+									line-height: 50px;
+									padding-left: 20px;
+									transition: all .2s;
+									&:hover{
+									background-color: #e6e6e6;
+
+									}
+									svg{
+										color: #2d3436;
+										margin-right: 5px;
+									}
+									a{
+										color: #2d3436;
+										font-size: 17px;
+										outline: none;
+										&:hover{
+											text-decoration: none;
+										}
+									}
+								}
+								.Dropdown{
+									&.active{
+										border-left: 2px solid #fdfdfd;
+									}
+									li{	
+										height: 50px;
+										line-height: 50px;
+										position: relative;
+										cursor: pointer;
+										&:hover .dropdownIcon{
+											opacity: 1;
+										}
+										&.active{
+											background-color: #e6e6e6;
+											border: 1px solid rgba(0,0,0,.2);
+										}
+										&.active .dropdownIcon{
+											opacity: 1;
+											transform: rotate(90deg);
+										}
+										svg{
+											color: #2d3436;
+										}
+										a{
+
+										}
+										.dropdownIcon{
+											position: absolute;
+											right: 10px;
+											top: 15px;
+											opacity: 0;
+											transition: all .3s;
+										}
+									}
+									.DropdownMenu{
+										overflow: hidden;
+										transition: all .3s linear;
+										background-color: #e6e6e6;
+										._Menu{
+											ul{
+												li{
+													padding-left: 35px;
+													transition: all .3s;
+													&:hover{
+													
+														background-color: #d9d9d9;
+													}
+													svg{
+
+													}
+													a{
+														outline: none;
+													}
+													
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.LeftSide_Slider{
+						left: -230px;
+					}
+					.RightSide{
+						position: fixed;
+						background-color: red;
+						height: 100vh;
+						width: 0;
+						left: 0;
+						z-index: 1;
+					}
+				}
+				.TopNav{
+					position: fixed;
+					left: 230px;
+					right: 0;
+					background-color: #ffffff;
+					transition: all .3s;
+					z-index: 1;
+					height: 50px;
+					.Navbar-Left{
+						position: absolute;
+				  		left: 10px;
+						ul{
+							@extend %ul-reset;
+							li{
+								display: inline-block;
+								margin-right: 10px;
+								svg{
+									cursor: pointer;
+								}
+								.input-group{
+
+								}
+							}
+						}
+					}
+					.Navbar-Right{
+				  		position: absolute;
+				  		right: 10px;
+				  		height: 50px;
+				  		line-height: 50px;
+						ul{
+							@extend %ul-reset	;
+							li{
+								
+								padding: 0 10px 0 10px;
+								display: inline-block;
+								transition: all .2s;
+								&:hover{
+									background-color: #74b9ff;
+									color: #ffffff;
+									cursor: pointer;
+								}
+								svg{
+
+								}
+								img{
+									width: 20px;
+									height: 20px;
+									border-radius: 50%;
+								}
+							}
+						}
+					}
+				}
+				.TopNav_Slider{
+					left: 0;
+				}
+				.PagesInfo{
+					position: relative;
+					.Pages-Toggle{
+						position: fixed;
+						top: 50px;
+						height: 100vh;
+						display: none;
+						z-index: 9999;
+						transition: all .2s;
+						background-color: rgba(0,0,0,.8);
+						width: 100%;
+					}
+					.Pages-Toggle-Slider{
+						display: block;
+					}
+					.Pages-Menu{
+						position: fixed;
+						right: 0;
+						top: 50px;
+						z-index: 9999;
+						width: 50%;
+						right: -50%;
+						height: 100vh;
+						transition: all .3s;
+						background-color: #fdfdfd;
+						.container-fluid:nth-child(1){
+							margin-bottom: 50px;
+							.row{
+								.col-lg-3{
+									text-align: center;
+									img{
+										width: 100px;
+										height: 100px;
+										border-radius: 50%;
+									}
+								}
+								.col-lg-6{
+									ul{
+										@extend %ul-reset;
+										padding-top: 20px;
+										li{
+											svg{
+												margin-right: 5px;
+											}
+											span{
+												font-size: 20px;
+											}
+										}
+									}
+								}
+								.col-lg-3{
+									ul{
+										@extend %ul-reset;
+										position: absolute;
+										bottom: 0;
+										right: 20px;
+										li{
+											span{
+												cursor: pointer;
+											}
+										}
+									}
+								}
+							}
+						}
+						.container-fluid:nth-child(2){
+							.row{
+								.col-lg-12{
+									nav{
+										ol{
+											li{
+												
+												a{
+													
+												}
+											}
+										}
+									}
+									ul{
+										@extend %ul-reset;
+										text-align: center;
+										li{
+											display: inline-block;
+											margin: 20px;
+											a{
+												svg{
+													font-size: 50px;
+													color: #2c3e50;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						
+					}
+					.Pages-Menu-Slider{
+						right: 0;
+					}
+				}
+				.Content{
+					position: absolute;
+					left: 240px;
+					right: 0;
+					top: 70px;
+					transition: all .3s;
+					.Loading{
+						margin-top:15%;
+						img{
+							height: 60px;
+							width: 60px;
+							animation: Loading 3s infinite linear;
+
+						}
+					}
+					.Dashboard{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.row{
+										.col-lg-4{
+											.card:nth-child(1){
+												border-radius: 5px;	
+												.card-body{
+													position: relative;
+													.ProfilePict{
+														position: relative;
+														padding-top: 10px;
+														padding-bottom: 10px;
+														img{
+															height: 150px;
+															width: 150px;
+															border-radius: 50%;
+															transition: all .3s;
+															&:hover{
+																box-shadow: 0px 0px 1px 1px rgba(0,0,0,.5);	
+															}
+														}	
+													}
+													ul{
+														@extend %ul-reset;
+														li{
+															margin-left: 30px;
+															svg{
+																margin-right: 10px;	
+															}
+															span{
+																font-size: 20px;
+															}
+														}
+														
+													}
+												}
+												.card-footer{
+													border-radius: 0;	
+													background-color: #0fb9b1;
+													color: #fdfdfd;
+													text-align: center;
+												}
+											}
+											.card:nth-child(2){
+												border: none;
+												border-top: 2px solid #0fb9b1;
+												border-radius: 0;
+												border-radius: 5px;
+												.card-header{
+													text-align: center;
+													background-image: linear-gradient(to right, #f1f2f6, #ffffff);
+
+												}	
+												.card-body{
+													form{
+														.form-group{
+															label{
+																padding-bottom: 5px;
+															}
+															input{
+																background-color: rgba(0,0,0,0);
+																border-radius: 0;
+																border: 2px solid #0fb9b1;
+																transition: all .2s;
+																&:focus{
+																	border: 2px solid #fdfdfd;
+																}
+															}
+															textarea{
+																background-color: rgba(0,0,0,0);
+																border-radius: 0;
+																border: 2px solid #0fb9b1;
+																transition: all .2s;
+																&:focus{
+																	border: 2px solid #fdfdfd;
+																}
+															}
+															button{
+																cursor: pointer;
+															}
+														}
+													}
+												}
+											}
+										}
+										.col-lg-8{
+											.row{
+												.col-lg-12:nth-child(1){
+													.card{
+														border: none;
+														.card-header{
+															background-color: rgba(0,0,0,0);
+															text-align: center;
+															font-size: 30px;
+															border: none;
+														}
+													}
+												}	
+												.col-lg-12:nth-child(2){
+													.InformationSummary{
+														.card{
+															position: relative;
+															border-right: 2px solid #0fb9b1;
+															border-bottom: 2px solid #0fb9b1;
+															.card-body{
+																.card-title{
+																	font-size: 25px;
+																}
+																.card-text{
+																	font-size: 17px;
+																}
+															}
+															.card-footer{
+																small{
+																	margin: 5px;
+																	font-size: 13px;
+																	span{
+																		font-weight: bold;
+																	}
+																}
+
+															}
+															.PinLogo{
+																position: absolute;
+																top: -10px;
+																right: 0;
+																transform: rotate(40deg);
+																img{
+																	width: 50px;
+																	height: 50px;
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.DataEmployee{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										.card-header{
+											font-size: 20px;
+										}
+										.card-body{
+											.TableEmployee{
+												table{
+													thead{
+														tr{
+															background-color: #0fb9b1;
+															th{
+																color: #fdfdfd;
+																text-align: center;
+																font-weight: bold;
+																width: 400px;
+															}
+														}
+													}
+													tbody{
+														tr{
+															td{
+																color: #3b3d45;
+																text-align: center;
+															}
+														}
+													}
+												}
+												.ExportButton{
+													margin-top: 5px;
+													margin-bottom: 5px;
+													._Button{
+														background-color: #3ae374;
+														border: none;
+														height: 35px;
+														width: 60px;
+														outline: none;
+														color: #fdfdfd;
+														cursor: pointer;
+														transition: all .2s;
+														&:active{
+															box-shadow: 3px 3px 1px rgba(0,0,0,.5);
+
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					
+					.KanBan{
+						.container-fluid{
+							.row{
+								.col-lg-12:nth-child(1){
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										background-color: #f1f2f6;
+										border: none;
+										border-top: 2px solid  #0fb9b1;
+										border-top-right-radius: 0;
+										border-top-left-radius: 0;
+										.card-body{
+											.CreateKanban{
+												form{
+													.form-row{
+														.col-md-3{
+															.form-group{
+																.labelForm{
+																	padding-bottom: 5px;
+																}
+																input{
+																	background-color: rgba(0,0,0,0);
+																	border-radius: 0;
+																	border: 2px solid #0fb9b1;
+																	transition: all .3s;
+																	&:focus{
+																		border: 2px solid #fdfdfd;
+																	}
+
+																	&:focus ~.labelForm{
+																		color: red;
+																	}
+																}
+																
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+								.col-lg-12:nth-child(2){
+									.row{
+										.col-lg-4{
+											.card{
+												position: relative;
+												border-radius: 0;
+												border-bottom: 2px solid #0fb9b1;
+												.card-body{
+													.card-title{
+														font-size: 25px;
+													}
+													.card-text{
+														font-size: 17px;
+														padding-bottom: 15px;
+													}	
+													small{
+														display: block;
+														font-size: 13px;
+														margin-buttom: 5px;
+														margin-top: 5px;
+														span{
+															font-weight: bold;
+														}
+													}
+													.Status{
+														position: absolute;
+														top: 5px;
+														right: 0;
+														width: 100px;
+														height: 30px;
+														padding: 2px 4px;
+														a{
+															position: absolute;
+															top: 2px;
+															left: 5px;
+															color: #fdfdfd;
+															pading-left: 10px;
+														}
+													}
+													.ActionBtn{
+														position: absolute;
+														bottom: 5px;
+														right: 5px;
+														width: 30px;
+														height: 30px;
+														text-align: center;
+														cursor: pointer;
+														transition: all .2s;
+														svg{
+															color: #747d8c;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.Requests{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+								}
+								.col-lg-12{
+									.row{
+										.col-lg-4{
+											.row{
+												.col-lg-12{
+													.card{
+														background-color: #f1f2f6;
+														border: none;
+														border-top: 2px solid  #0fb9b1;
+														border-top-right-radius: 0;
+														border-top-left-radius: 0;
+														.card-body{
+															.CreateRequests{
+																form{
+																	.form-group{
+																		label{
+																			padding-bottom: 5px;
+																		}
+																		input{
+																			background-color: rgba(0,0,0,0);
+																			border-radius: 0;
+																			border: 2px solid #0fb9b1;
+																			transition: all .3s;
+																			&:focus{
+																				border: 2px solid #fdfdfd;
+																			}
+
+																			&:focus ~.labelForm{
+																				color: red;
+																			}
+																		}
+																		textarea{
+																			background-color: rgba(0,0,0,0);
+																			border-radius: 0;
+																			border: 2px solid #0fb9b1;
+																			transition: all .3s;
+																			&:focus{
+																				border: 2px solid #fdfdfd;
+																			}
+
+																			&:focus ~.labelForm{
+																				color: red;
+																			}
+																		}
+																		select{
+																			background-color: rgba(0,0,0,0);
+																			border-radius: 0;
+																			border: 2px solid #0fb9b1;
+																			transition: all .3s;
+																			&:focus{
+																				border: 2px solid #fdfdfd;
+																			}
+
+																			&:focus ~.labelForm{
+																				color: red;
+																			}
+																		}
+																		button{
+																			
+																		}
+																	}
+																}
+															}	
+														}
+													}
+												}
+											}
+										}
+										.col-lg-8{
+											.row{
+												.col-lg-12{
+													.card{
+														position: relative;
+														border-radius: 0;
+														border-bottom: 2px solid #0fb9b1;
+														.card-body{
+															.card-title{
+																font-size: 25px;
+															}
+															.card-text{
+																font-size: 17px;
+																padding-bottom: 10px;
+															}
+															small{
+																font-size: 13px;
+																span{
+																	font-weight: bold;
+																}
+															}
+															.Blank_Spot{
+																height: 10px;
+															}
+															.Status{
+																position: absolute;
+																top: 5px;
+																right: 0;
+																width: 130px;
+																height: 30px;
+																padding: 2px 4px;
+																a{
+																	position: absolute;
+																	top: 3px;
+																	left: 5px;
+																	font-size: 15px;
+																	color: #fdfdfd;
+																}
+															}
+															.ActionBtn{
+																position: absolute;
+																bottom: 5px;
+																right: 5px;
+																width: 30px;
+																height: 30px;
+																text-align: center;
+																cursor: pointer;
+																transition: all .2s;
+																svg{
+																	color: #747d8c;
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.RequestsRecord{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										.card-body{
+											._Table{
+												table{
+													thead{
+														tr{
+															background-color: #0fb9b1;
+															th{
+																color: #fdfdfd;
+																text-align: center;
+																font-weight: bold;
+																width: 400px;
+															}
+														}
+													}
+													tbody{
+														tr{
+															td{
+																color: #3b3d45;
+																text-align: center;
+															}
+														}
+													}
+												}
+												.ExportButton{
+													margin-top: 5px;
+													margin-bottom: 5px;
+													._Button{
+														background-color: #3ae374;
+														border: none;
+														height: 35px;
+														width: 60px;
+														outline: none;
+														color: #fdfdfd;
+														cursor: pointer;
+														transition: all .2s;
+														&:active{
+															box-shadow: 3px 3px 1px rgba(0,0,0,.5);
+
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.DataUsers{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										.card-header{
+											font-size: 20px;
+										}
+										.card-body{
+											table{
+												thead{
+													tr{
+														background-color: #0fb9b1;
+														th{
+															color: #fdfdfd;
+															text-align: center;
+															font-weight: bold;
+															width: 400px;
+														}
+													}
+												}
+												tbody{
+													tr{
+														td{
+															color: #3b3d45;
+															text-align: center;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				.Content_Slider{
+					left: 0;
+				}
+				.Content-Auth{
+					position: relative;
+					margin-top: 4%;
+					margin-bottom: 4%;
+					.SignIn{
+						position: relative;
+						.container{
+							.row{
+								.col-lg-5{
+									.card{
+										.card-body{
+											padding: 40px;
+											form{
+												p{
+
+												}
+												.form-group{
+													position: relative;
+													.EyePassword{
+														position: absolute;
+														cursor: pointer;
+														top: 0;
+														right: 10px;
+														top: 4px;
+													}
+												}
+											}
+											.info{
+												position: absolute;
+												bottom: 10px;
+												left: 20px;
+												svg{
+													font-size: 20px;
+													cursor: pointer;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.SignUp{
+						.container{
+							.row{
+								.col-lg-5{
+									.card{
+										.card-body{
+											padding: 40px;
+											form{
+												p{
+
+												}
+												.form-group{
+													position: relative;
+													.EyePassword{
+														position: absolute;
+														cursor: pointer;
+														top: 0;
+														right: 10px;
+														top: 5px;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.Btn_Modal{
+			border-radius: 0;
+			background-color: #fdfdfd;
+			color: #34495e;
+			transition: all .3s;
+			&:hover{
+				background-color: #0fb9b1;
+				color: #fdfdfd;
+				border: 1px solid #0fb9b1;
+			}
+		}
+		.LabelModal{
+			padding-bottom: 5px;
+		}
+	}
+}
+
+@media screen and (max-width: 600px){
+	html{
+		body{
+			#root{
+				.App{
+					.SideNav{
+						.LeftSide{
+							._Header{
+								h1{
+								}
+							}
+							._mainMenu{
+								ul{
+									li{
+										&:hover{
+										}
+										svg{
+										}
+										a{
+											&:hover{
+											}
+										}
+									}
+									.Dropdown{
+										&.active{
+										}
+										li{	
+											&:hover .dropdownIcon{
+											}
+											&.active{
+											}
+											&.active .dropdownIcon{
+											}
+											svg{
+											}
+											a{
+											}
+											.dropdownIcon{
+											}
+										}
+										.DropdownMenu{
+											._Menu{
+												ul{
+													li{
+														&:hover{
+														}
+														svg{
+
+														}
+														a{
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.LeftSide_Slider{
+						}
+						.RightSide{
+						}
+					}
+					.TopNav{
+						.Navbar-Left{
+							ul{
+								li{
+									svg{
+									}
+									.input-group{
+										display: none;
+									}
+								}
+							}
+						}
+						.Navbar-Right{
+							ul{
+								li{
+									&:hover{
+									}
+									svg{
+										display: none;
+									}
+									img{
+									}
+								}
+							}
+						}
+					}
+					.TopNav_Slider{
+					}
+					.PagesInfo{
+						.Pages-Toggle{
+						}
+						.Pages-Toggle-Slider{
+						}
+						.Pages-Menu{
+							width: 90%;
+							right: -90%;
+							.container-fluid:nth-child(1){
+								.row{
+									.col-lg-3{
+										img{
+										}
+									}
+									.col-lg-6{
+										ul{
+											li{
+												svg{
+												}
+												span{
+												}
+											}
+										}
+									}
+									.col-lg-3{
+										ul{
+											li{
+												span{
+												}
+											}
+										}
+									}
+								}
+							}
+							.container-fluid:nth-child(2){
+								.row{
+									.col-lg-12{
+										nav{
+											ol{
+												li{
+													
+													a{
+														
+													}
+												}
+											}
+										}
+										ul{
+											li{
+												a{
+													svg{
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							
+						}
+						.Pages-Menu-Slider{
+							right: 0;
+						}
+					}
+					.Content{
+						.Loading{
+							img{
+							}
+						}
+						.Dashboard{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.row{
+											.col-lg-4{
+												.card:nth-child(1){
+													.card-body{
+														.ProfilePict{
+															img{
+																&:hover{
+																}
+															}	
+														}
+														ul{
+															li{
+																svg{
+																}
+																span{
+																}
+															}
+														}
+													}
+													.card-footer{
+													}
+												}
+												.card:nth-child(2){
+													.card-header{
+													}	
+													.card-body{
+														form{
+															.form-group{
+																label{
+																}
+																input{
+																	&:focus{
+																	}
+																}
+																textarea{
+																	&:focus{
+																	}
+																}
+																button{
+																}
+															}
+														}
+													}
+												}
+											}
+											.col-lg-8{
+												.row{
+													.col-lg-12:nth-child(1){
+														.card{
+															.card-header{
+															}
+														}
+													}	
+													.col-lg-12:nth-child(2){
+														.InformationSummary{
+															.card{
+																.card-body{
+																	.card-title{
+																	}
+																	.card-text{
+																	}
+																}
+																.card-footer{
+																	small{
+																		span{
+																		}
+																	}
+
+																}
+																.PinLogo{
+																	img{
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.DataEmployee{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.card{
+											.card-header{
+											}
+											.card-body{
+												.TableEmployee{
+													table{
+														thead{
+															tr{
+																th{
+																}
+															}
+														}
+														tbody{
+															tr{
+																td{
+																}
+															}
+														}
+													}
+													.ExportButton{
+														._Button{
+															&:active{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						
+						.KanBan{
+							.container-fluid{
+								.row{
+									.col-lg-12:nth-child(1){
+										nav{
+										}
+										.card{
+											.card-body{
+												.CreateKanban{
+													form{
+														.form-row{
+															.col-md-3{
+																.form-group{
+																	.labelForm{
+																	}
+																	input{
+																		&:focus{
+																		}
+
+																		&:focus ~.labelForm{
+																		}
+																	}
+																	
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+									.col-lg-12:nth-child(2){
+										.row{
+											.col-lg-4{
+												.card{
+													.card-body{
+														.card-title{
+														}
+														.card-text{
+														}	
+														small{
+															span{
+															}
+														}
+														.Status{
+															a{
+															}
+														}
+														.ActionBtn{
+															svg{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.Requests{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+									}
+									.col-lg-12{
+										.row{
+											.col-lg-4{
+												.row{
+													.col-lg-12{
+														.card{
+															.card-body{
+																.CreateRequests{
+																	form{
+																		.form-group{
+																			label{
+																			}
+																			input{
+																				&:focus{
+																				}
+
+																				&:focus ~.labelForm{
+																				}
+																			}
+																			textarea{
+																				&:focus{
+																				}
+
+																				&:focus ~.labelForm{
+																				}
+																			}
+																			select{
+																				&:focus{
+																				}
+
+																				&:focus ~.labelForm{
+																				}
+																			}
+																			button{
+																				
+																			}
+																		}
+																	}
+																}	
+															}
+														}
+													}
+												}
+											}
+											.col-lg-8{
+												.row{
+													.col-lg-12{
+														.card{
+															.card-body{
+																.card-title{
+																}
+																.card-text{
+																}
+																small{
+																	span{
+																	}
+																}
+																.Blank_Spot{
+																}
+																.Status{
+																	a{
+																	}
+																}
+																.ActionBtn{
+																	svg{
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.RequestsRecord{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.card{
+											.card-body{
+												._Table{
+													table{
+														thead{
+															tr{
+																th{
+																}
+															}
+														}
+														tbody{
+															tr{
+																td{
+																	color: #3b3d45;
+																	text-align: center;
+																}
+															}
+														}
+													}
+													.ExportButton{
+														._Button{
+															&:active{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.DataUsers{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.card{
+											.card-header{
+											}
+											.card-body{
+												table{
+													thead{
+														tr{
+															th{
+															}
+														}
+													}
+													tbody{
+														tr{
+															td{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.Content_Slider{
+					}
+					.Content-Auth{
+						.SignIn{
+							padding-top: 15%;
+							.container{
+								.row{
+									.col-lg-5{
+										.card{
+											.card-body{
+												form{
+													p{
+
+													}
+													.form-group{
+														.EyePassword{
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.SignUp{
+							padding-top: 15%;
+							.container{
+								.row{
+									.col-lg-5{
+										.card{
+											.card-body{
+												form{
+													p{
+
+													}
+													.form-group{
+														position: relative;
+														.EyePassword{
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.Btn_Modal{
+				&:hover{
+				}
+			}
+			.LabelModal{
+			}
+		}
+	}
+}
+
+@keyframes Loading {
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
