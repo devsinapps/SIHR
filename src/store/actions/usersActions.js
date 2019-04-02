@@ -8,7 +8,7 @@ export const updateUser = (dataUSer) =>{
 			initials:dataUSer.firstName[0]+dataUSer.lastName[0],
 			email:dataUSer.email,
 			password:dataUSer.password,
-			level:dataUSer.level,
+			level:dataUSer.parseLevel,
 			joinDate:dataUSer.joinDate
 		}).then(()=>{
 			dispatch({

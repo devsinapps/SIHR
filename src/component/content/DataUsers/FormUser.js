@@ -12,7 +12,7 @@ class FormUser
 			enabled : value.firstName.length > 0 &&
 					  value.lastName.length > 0 &&
 					  value.email.length > 0 &&
-					  value.level.length > 0
+					  value.level > 0
 		}
 		
 		return(
@@ -67,7 +67,7 @@ class FormUser
 				<MDBBtn color="warning"  onClick={()=>this.props.formAction('UPDATE', '')} disabled={!config.enabled}>
 	        		<MDBIcon icon="file-contract" className="mr-1" /> Update
 		        </MDBBtn>
-		        <MDBBtn color="danger"  onClick={()=>this.props.formAction('DELETE', '')} disabled={!config.enabled}>
+		        <MDBBtn color="danger"  onClick={()=>this.props.formAction('DELETE', '')}>
 	        		<MDBIcon icon="trash" className="mr-1" /> Delete
 		        </MDBBtn>
 		        <MDBBtn color="info"  onClick={()=>this.props.formAction('RESET', '')}>

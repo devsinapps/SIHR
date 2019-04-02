@@ -54,8 +54,9 @@ class DataUsers extends React.Component{
 				break ;
 
 			case 'UPDATE':
+				const parseLevel = parseInt(level);
 				const dataUsers = {
-					id, firstName, lastName, nickName, initials, email, password, division, level, joinDate
+					id, firstName, lastName, nickName, initials, email, password, division, parseLevel, joinDate
 				}
 
 				const checkUpd = window.confirm('Update?')
@@ -111,6 +112,7 @@ class DataUsers extends React.Component{
 		
 	}
 	render(){
+		console.log(this.state)
 		const { dataRoutes } = this.props
 		const { loading, id, firstName, lastName, email, password, level, joinDate } = this.state
 		const value = { id, firstName, lastName, email, password, level, joinDate }

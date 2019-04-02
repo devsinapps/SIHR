@@ -2,6 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody,
+} from 'react-accessible-accordion';
+
 class SideNav extends React.Component{
 	Slider = (e) => {
 		const LeftSide = document.getElementsByClassName('LeftSide')[0];
@@ -136,3 +144,4 @@ class Dropdown extends React.Component{
 		)
 	}
 }
+

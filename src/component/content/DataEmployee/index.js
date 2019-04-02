@@ -206,7 +206,7 @@ class DataEmployee extends React.Component{
 		const { dataRoutes } = this.props
 		const {  loading, id , firstName, lastName, age, address, idCard, gender, dob, pob, dateJoin, division, status, active} = this.state
 		const value = { id , firstName, lastName, age, address, idCard, gender, dob, pob, dateJoin, division, status, active }
-		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
+		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
 				<div className="DataEmployee">

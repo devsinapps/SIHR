@@ -13,12 +13,12 @@ class EmployeeTable extends React.Component{
 		let number = 1
 		return(
 			<div className='TableEmployee'>
-				<MDBTable scrollX scrollY striped bordered responsive hover  maxHeight="300px" >
+				<MDBTable scrollX scrollY striped bordered responsive hover  maxHeight="300px">
 					<MDBTableHead>
 						<tr>
 							<th> No </th>
 							<th style={{display: "none"}}> Id </th>
-							<th> FirstName </th>
+							<th style={{width: '300px'}}> FirstName </th>
 							<th> LastName </th>
 							<th> Age </th>
 							<th> Address </th>

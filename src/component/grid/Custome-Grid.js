@@ -2,8 +2,7 @@ import React from 'react'
 
 //Reactstrap
 import {MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardHeader, MDBCardBody } from 'mdbreact';
-export const ContainerFluidRow = (props) => {
-	const { rowClass, children } = props
+export const ContainerFluidRow = ({rowClass, children}) => {
 	return(
 		<MDBContainer fluid>
 			<MDBRow className={rowClass}>
@@ -13,8 +12,7 @@ export const ContainerFluidRow = (props) => {
 	)
 }
 
-export const ContainerRow = (props) => {
-	const { rowClass, children } = props
+export const ContainerRow = ({rowClass, children}) => {
 	return(
 		<MDBContainer>
 			<MDBRow className={rowClass}>
@@ -24,8 +22,9 @@ export const ContainerRow = (props) => {
 	)
 }
 
-export const ColCard = (props) => {
-	const { lgCol, mdCol, smCol, brCard, tlCard, children } = props
+
+
+export const ColCard = ({lgCol, mdCol, smCol, brCard, tlCard, children}) => {
 		const config = {
 		viewHeader: tlCard === '' ? null : <MDBCardHeader> {tlCard} </MDBCardHeader>,
 		viewBody: children === undefined ? null : <MDBCardBody> {children} </MDBCardBody>
@@ -40,8 +39,7 @@ export const ColCard = (props) => {
 	)
 }
 
-export const Col_B = (props) => {
-	const { lgCol, mdCol, smCol, style, children } = props
+export const Col_B = ({lgCol, mdCol, smCol, style, children}) => {
 	return(
 		<MDBCol lg={lgCol} md={mdCol} sm={smCol} style={style}>
 			{children}
@@ -49,8 +47,7 @@ export const Col_B = (props) => {
 	)
 }
 
-export const Card_B = (props) => {
-	const { brCard, tlCard, children } = props
+export const Card_B = ({brCard, tlCard, children}) => {
 	const config = {
 		viewHeader: tlCard === '' ? null : <MDBCardHeader> {tlCard} </MDBCardHeader>
 	}
@@ -62,4 +59,44 @@ export const Card_B = (props) => {
 			</MDBCardBody>
 		</MDBCard>
 	)
+}
+
+export class Collapsible extends React.Component{
+	state = {
+		isExpanded: false
+	}
+
+	collapsible = () => {
+		this.setState({
+			isExpanded: !this.state.isExpanded,
+			height: this.refs.inner.clientHeight
+		})
+	}
+	render(){
+		const { isExpanded, height } = this.state
+		const { lgCol, mdCol, smCol, brCard, tlCard, children } = this.props
+		const statement = {
+			click: children === undefined ? null : this.collapsible,
+			collapsibleStyle: {
+				height: isExpanded ? '0' : height + 40 ,
+				transition: 'all .3s',
+				overflow: 'hidden',
+				padding: isExpanded ? '0' : '' ,
+				opacity: isExpanded ? '0' : '1'  
+			}
+		}
+		const config = {
+			viewHeader: tlCard === '' ? null : <MDBCardHeader onClick={statement.click}> {tlCard} </MDBCardHeader>,
+			viewBody: children === undefined ? null : (<MDBCardBody style={statement.collapsibleStyle}> <div ref='inner'> {children} </div> </MDBCardBody>)
+			
+		}
+		return(
+			<MDBCol lg={lgCol} md={mdCol} sm={smCol}>
+				<MDBCard className={brCard}>
+					{config.viewHeader}
+					{config.viewBody}
+				</MDBCard>
+			</MDBCol>
+		)
+	}
 }
