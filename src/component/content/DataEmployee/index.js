@@ -12,7 +12,7 @@ import Loading from './../../../assets/images/Loading.png'
 //Reactstrap
 import { Container, Row, Col, Card, Breadcrumb, BreadcrumbItem } from 'reactstrap'
 //Grid
-import { ContainerFluidRow, ColCard, Col_B, Card_B } from './../../grid/Custome-Grid'
+import { ContainerFluidRow, ColCard, Col_B, Card_B, Collapsible } from './../../grid/Custome-Grid'
 class DataEmployee extends React.Component{
 	state = {
 		loading: true,
@@ -217,21 +217,21 @@ class DataEmployee extends React.Component{
 					        		<a> Data Employee </a>
 					        	</BreadcrumbItem>
 					      	</Breadcrumb>
-					      	<Card_B brCard='mb-3' tlCard='Data'>
-					      		<EmployeeTable 
-									dataRoutes={dataRoutes}
-									formAction={this.formAction	}
-								/>
-					      	</Card_B>
 						</Col_B>
-						<ColCard lgCol='12' mdCol='12' smCol='12' colClass='' brCard='mb-3' tlCard='Form'>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Data'>
+							<EmployeeTable 
+								dataRoutes={dataRoutes}
+								formAction={this.formAction	}
+							/>
+						</Collapsible>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Form'>
 							<EmployeeForm 
 								value={value}
 								dataRoutes={dataRoutes}
 								onChange={this.onChange}
 								formAction={this.formAction}
 							/>
-						</ColCard>
+						</Collapsible>
 					</ContainerFluidRow>
 				</div>
 			)

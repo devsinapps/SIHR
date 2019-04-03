@@ -1,17 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP|Oxygen");
-html body #root .App .SideNav .LeftSide ._mainMenu ul, html body #root .App .TopNav .Navbar-Left ul, html body #root .App .TopNav .Navbar-Right ul, html body #root .App .PagesInfo .Pages-Menu .container-fluid:nth-child(1) .row .col-lg-6 ul, html body #root .App .PagesInfo .Pages-Menu .container-fluid:nth-child(1) .row .col-lg-3 ul, html body #root .App .PagesInfo .Pages-Menu .container-fluid:nth-child(2) .row .col-lg-12 ul, html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-4 .card:nth-child(1) .card-body ul {
+html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .SideNav .LeftSide ._mainMenu ul, html body #root .App .TopNav .Navbar-Left ul, html body #root .App .TopNav .Navbar-Right ul, html body #root .App .PagesInfo .Pages-Menu .container-fluid:nth-child(1) .row .col-lg-6 ul, html body #root .App .PagesInfo .Pages-Menu .container-fluid:nth-child(1) .row .col-lg-3 ul, html body #root .App .PagesInfo .Pages-Menu .container-fluid:nth-child(2) .row .col-lg-12 ul, html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-4 .card:nth-child(1) .card-body ul {
   list-style-type: none;
   padding: 0;
   margin: 0; }
 
-html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .KanBan .container-fluid .row .col-lg-12:nth-child(1) nav ol, html body #root .App .Content .Requests .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 nav ol {
+html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-header ul li, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-header ul li, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-header ul li, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-header ul li, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-header ul li, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-header ul li {
+  display: inline-block;
+  margin-right: 15px; }
+
+html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .KanBan .container-fluid .row .col-lg-12:nth-child(1) nav ol, html body #root .App .Content .Requests .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 nav ol, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 nav ol {
   background-image: linear-gradient(to right, #f1f2f6, #ffffff);
   border-radius: 0; }
-  html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .KanBan .container-fluid .row .col-lg-12:nth-child(1) nav ol li, html body #root .App .Content .Requests .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 nav ol li {
+  html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .KanBan .container-fluid .row .col-lg-12:nth-child(1) nav ol li, html body #root .App .Content .Requests .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 nav ol li, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 nav ol li {
     height: 35px; }
-    html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .KanBan .container-fluid .row .col-lg-12:nth-child(1) nav ol li a, html body #root .App .Content .Requests .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 nav ol li a {
+    html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .KanBan .container-fluid .row .col-lg-12:nth-child(1) nav ol li a, html body #root .App .Content .Requests .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 nav ol li a, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 nav ol li a {
       font-size: 25px;
       line-height: 35px; }
+
+html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-header ul, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-header ul {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+  html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-header ul li .Close, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-header ul li .Close, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-header ul li .Close, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-header ul li .Close, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-header ul li .Close, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-header ul li .Close {
+    cursor: pointer;
+    color: #d63031; }
+  html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-header ul li .Minimize, html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-header ul li .Minimize, html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-header ul li .Minimize, html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-header ul li .Minimize, html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-header ul li .Minimize, html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-header ul li .Minimize {
+    cursor: pointer;
+    color: #00b894; }
 
 html body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -31,75 +46,73 @@ html body {
         z-index: 2; }
         html body #root .App .SideNav .LeftSide ._Header {
           height: 50px;
+          background-color: #0abde3;
           text-align: center; }
           html body #root .App .SideNav .LeftSide ._Header h1 {
             font-size: 30px;
             line-height: 50px;
-            color: #2d3436; }
+            color: #ffffff; }
         html body #root .App .SideNav .LeftSide ._mainMenu {
           position: relative;
           height: 300px;
           overflow: hidden;
           overflow-y: auto; }
           html body #root .App .SideNav .LeftSide ._mainMenu ul li {
-            height: 50px;
-            line-height: 50px;
+            height: 40px;
+            line-height: 40px;
             padding-left: 20px;
-            transition: all .2s; }
+            transition: all .2s;
+            font-size: 14px; }
             html body #root .App .SideNav .LeftSide ._mainMenu ul li:hover {
-              background-color: #e6e6e6; }
+              background-color: rgba(10, 189, 227, 0.1); }
             html body #root .App .SideNav .LeftSide ._mainMenu ul li svg {
-              color: #2d3436;
+              color: #ced6e0;
               margin-right: 5px; }
             html body #root .App .SideNav .LeftSide ._mainMenu ul li a {
               color: #2d3436;
-              font-size: 17px;
               outline: none; }
               html body #root .App .SideNav .LeftSide ._mainMenu ul li a:hover {
                 text-decoration: none; }
-          html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown.active {
+          html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion.active {
             border-left: 2px solid #fdfdfd; }
-          html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown li {
-            height: 50px;
-            line-height: 50px;
+          html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li {
+            height: 40px;
+            line-height: 40px;
             position: relative;
             cursor: pointer; }
-            html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown li:hover .dropdownIcon {
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li:hover .dropdownIcon {
               opacity: 1; }
-            html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown li.active {
-              background-color: #e6e6e6;
-              border: 1px solid rgba(0, 0, 0, 0.2); }
-            html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown li.active .dropdownIcon {
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li.active {
+              background-color: rgba(10, 189, 227, 0.1);
+              border-left: 2px solid  #0abde3; }
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li.active .dropdownIcon {
               opacity: 1;
               transform: rotate(90deg); }
-            html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown li svg {
-              color: #2d3436; }
-            html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown li .dropdownIcon {
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li.active .titleDropdown {
+              color: #0abde3; }
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li.active svg {
+              color: #0abde3; }
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li svg {
+              color: #ced6e0; }
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion li .dropdownIcon {
               position: absolute;
               right: 10px;
               top: 15px;
               opacity: 0;
               transition: all .3s; }
-          html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown .DropdownMenu {
-            overflow: hidden;
-            transition: all .3s linear;
-            background-color: #e6e6e6; }
-            html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown .DropdownMenu ._Menu ul li {
+          html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion .AccordionMenu {
+            transition: all .3s linear; }
+            html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion .AccordionMenu ul li {
               padding-left: 35px;
               transition: all .3s; }
-              html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown .DropdownMenu ._Menu ul li:hover {
-                background-color: #d9d9d9; }
-              html body #root .App .SideNav .LeftSide ._mainMenu ul .Dropdown .DropdownMenu ._Menu ul li a {
+              html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion .AccordionMenu ul li:hover {
+                background-color: rgba(10, 189, 227, 0.1); }
+              html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion .AccordionMenu ul li svg {
+                color: #ced6e0; }
+              html body #root .App .SideNav .LeftSide ._mainMenu ul .Accordion .AccordionMenu ul li a {
                 outline: none; }
       html body #root .App .SideNav .LeftSide_Slider {
         left: -230px; }
-      html body #root .App .SideNav .RightSide {
-        position: fixed;
-        background-color: red;
-        height: 100vh;
-        width: 0;
-        left: 0;
-        z-index: 1; }
     html body #root .App .TopNav {
       position: fixed;
       left: 230px;
@@ -280,8 +293,6 @@ html body {
           html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-8 .row .col-lg-12:nth-child(2) .InformationSummary .card .PinLogo img {
             width: 50px;
             height: 50px; }
-      html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-header {
-        font-size: 20px; }
       html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table thead tr {
         background-color: #0fb9b1; }
         html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table thead tr th {
@@ -461,8 +472,6 @@ html body {
           transition: all .2s; }
           html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table .ExportButton ._Button:active {
             box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5); }
-      html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-header {
-        font-size: 20px; }
       html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table thead tr {
         background-color: #0fb9b1; }
         html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table thead tr th {

@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Container, Row, Col, Card, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap' 
 //Grid 
-import { ContainerFluidRow, ColCard, Col_B, Card_B } from './../../grid/Custome-Grid'
+import { ContainerFluidRow, ColCard, Col_B, Card_B, Collapsible } from './../../grid/Custome-Grid'
 
 class DataUsers extends React.Component{
 	state = {
@@ -112,11 +112,10 @@ class DataUsers extends React.Component{
 		
 	}
 	render(){
-		console.log(this.state)
 		const { dataRoutes } = this.props
 		const { loading, id, firstName, lastName, email, password, level, joinDate } = this.state
 		const value = { id, firstName, lastName, email, password, level, joinDate }
-		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/' />;
+		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/' />;
 		if(loading != true){
 			return(
 				<div className="DataUsers">
@@ -127,23 +126,23 @@ class DataUsers extends React.Component{
 						       	<a>Data Users</a>
 						       </BreadcrumbItem>
 						    </Breadcrumb>
-						    <Card_B brCard='mb-3' tlCard='Data Table'>
-					    		<TableUser 
-						    		value={value}
-						    		dataRoutes={dataRoutes}
-						    		onChange={this.onChange}
-						    		formAction={this.formAction}
-						    	/>
-						    </Card_B>
 						</Col_B>
-						<ColCard lgCol='12' mdCol='12' smCol='12' colClass='' brCard='mb-3' tlCard='Form'>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Data Table'>
+							<TableUser 
+					    		value={value}
+					    		dataRoutes={dataRoutes}
+					    		onChange={this.onChange}
+					    		formAction={this.formAction}
+					    	/>
+						</Collapsible>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Form'>
 							<FormUser 
 								value={value}
 								dataRoutes={dataRoutes}
 								onChange={this.onChange}
 								formAction={this.formAction}
 							/>
-						</ColCard>
+						</Collapsible>
 					</ContainerFluidRow>
 				</div>
 			)

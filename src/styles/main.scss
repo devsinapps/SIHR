@@ -6,6 +6,11 @@
 	margin: 0;
 }
 
+%li-style-inline{
+	display: inline-block;
+	margin-right: 15px;
+}
+
 %breadcrumb-style{
 	ol{
 		background-image: linear-gradient(to right, #f1f2f6, #ffffff);
@@ -15,6 +20,28 @@
 			a{
 				font-size: 25px;
 				line-height: 35px;
+			}
+		}
+	}
+}
+
+%collapsible-style{
+	.card-header{
+		ul{
+			@extend %ul-reset;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			li{
+				@extend %li-style-inline;
+				.Close{
+					cursor: pointer;
+					color: #d63031;
+				}
+				.Minimize{
+					cursor: pointer;
+					color: #00b894;
+				}
 			}
 		}
 	}
@@ -40,12 +67,12 @@ html{
 						z-index: 2;
 						._Header{
 							height: 50px;
-
+							background-color: #0abde3;
 							text-align: center;
 							h1{
 								font-size: 30px;
 								line-height: 50px;
-								color: #2d3436;
+								color: #ffffff;
 							}
 						}
 						._mainMenu{
@@ -56,51 +83,62 @@ html{
 							ul{
 								@extend %ul-reset;
 								li{
-									height: 50px;
-									line-height: 50px;
+									height: 40px;
+									line-height: 40px;
 									padding-left: 20px;
 									transition: all .2s;
+									font-size: 14px;
 									&:hover{
-									background-color: #e6e6e6;
+										background-color: rgba(10, 189, 227,.1);
 
 									}
+
 									svg{
-										color: #2d3436;
+										color: #ced6e0;
 										margin-right: 5px;
 									}
 									a{
 										color: #2d3436;
-										font-size: 17px;
+
 										outline: none;
 										&:hover{
 											text-decoration: none;
 										}
+
 									}
 								}
-								.Dropdown{
+								.Accordion{
 									&.active{
 										border-left: 2px solid #fdfdfd;
 									}
 									li{	
-										height: 50px;
-										line-height: 50px;
+										height: 40px;
+										line-height: 40px;
 										position: relative;
 										cursor: pointer;
 										&:hover .dropdownIcon{
 											opacity: 1;
 										}
 										&.active{
-											background-color: #e6e6e6;
-											border: 1px solid rgba(0,0,0,.2);
+											background-color: rgba(10, 189, 227,.1);
+											border-left: 2px solid  #0abde3;
 										}
 										&.active .dropdownIcon{
 											opacity: 1;
 											transform: rotate(90deg);
 										}
-										svg{
-											color: #2d3436;
+										&.active .titleDropdown{
+											color: #0abde3;
 										}
-										a{
+
+										&.active svg{
+											color: #0abde3;
+										} 
+
+										svg{
+											color: #ced6e0;
+										}
+										.titleDropdown{
 
 										}
 										.dropdownIcon{
@@ -111,27 +149,22 @@ html{
 											transition: all .3s;
 										}
 									}
-									.DropdownMenu{
-										overflow: hidden;
+									.AccordionMenu{
 										transition: all .3s linear;
-										background-color: #e6e6e6;
-										._Menu{
-											ul{
-												li{
-													padding-left: 35px;
-													transition: all .3s;
-													&:hover{
-													
-														background-color: #d9d9d9;
-													}
-													svg{
-
-													}
-													a{
-														outline: none;
-													}
-													
+										ul{
+											li{
+												padding-left: 35px;
+												transition: all .3s;
+												&:hover{
+													background-color: rgba(10, 189, 227,.1);
 												}
+												svg{
+													color: #ced6e0;
+												}
+												a{
+													outline: none;
+												}
+												
 											}
 										}
 									}
@@ -143,12 +176,7 @@ html{
 						left: -230px;
 					}
 					.RightSide{
-						position: fixed;
-						background-color: red;
-						height: 100vh;
-						width: 0;
-						left: 0;
-						z-index: 1;
+						
 					}
 				}
 				.TopNav{
@@ -479,9 +507,7 @@ html{
 										@extend %breadcrumb-style;
 									}
 									.card{
-										.card-header{
-											font-size: 20px;
-										}
+										@extend %collapsible-style;
 										.card-body{
 											.TableEmployee{
 												table{
@@ -781,6 +807,7 @@ html{
 										@extend %breadcrumb-style;
 									}
 									.card{
+										@extend %collapsible-style;
 										.card-body{
 											._Table{
 												table{
@@ -837,9 +864,7 @@ html{
 										@extend %breadcrumb-style;
 									}
 									.card{
-										.card-header{
-											font-size: 20px;
-										}
+										@extend %collapsible-style;
 										.card-body{
 											table{
 												thead{
@@ -862,6 +887,57 @@ html{
 													}
 												}
 											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.JobOpenings{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										@extend %collapsible-style;
+										.card-body{
+											
+										}
+									}
+								}
+							}
+						}
+					}
+					.Candidates{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										@extend %collapsible-style;
+										.card-body{
+											
+										}
+									}
+								}
+							}
+						}
+					}
+					.Interviews{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										@extend %collapsible-style;
+										.card-body{
+											
 										}
 									}
 								}
