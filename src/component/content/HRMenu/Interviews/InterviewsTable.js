@@ -2,6 +2,7 @@ import React from 'react'
 //mdbreact
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
 export const InterviewsTable = ({dataRoutes, formAction}) => {
+	let no = 1;
 	return(
 		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
 			<MDBTableHead>
@@ -23,7 +24,7 @@ export const InterviewsTable = ({dataRoutes, formAction}) => {
 				{dataRoutes.firestore.ordered.Interviews && dataRoutes.firestore.ordered.Interviews.map((data)=>{
 					return(
 					<tr onClick={()=>formAction('GETDATA', data)}>
-						<td> No </td>
+						<td> {no++} </td>
 						<td> {data.interviewName} </td>
 						<td> {data.candidateName} </td>
 						<td> {data.clientName} </td>

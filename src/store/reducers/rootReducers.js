@@ -8,6 +8,7 @@ import userReducers from './userReducers'
 import JOReducers from './JOReducers'
 import CandidateReducers from './CandidateReducers'
 import interviewsReducers from './interviewsReducers'
+import taskReducers from './taskReducers'
 import { combineReducers } from 'redux'
 import { firestoreReducer } from 'redux-firestore'
 import { firebaseReducer } from 'react-redux-firebase'
@@ -23,6 +24,7 @@ const rootReducers = combineReducers({
 	JO: JOReducers,
 	Candidate: CandidateReducers,
 	interviews: interviewsReducers,
+	task: taskReducers,
 	dummy: dummyReducer,
 	
 })

@@ -157,10 +157,10 @@ export class JOForm extends React.Component{
 					</Col>
 				</Row>
 				<FormGroup>
-					<MDBBtn color='primary' size='sm' onClick={()=>this.props.formAction('SAVE', '')}> Save </MDBBtn>
-					<MDBBtn color='primary' size='sm' onClick={()=>this.props.formAction('UPDATE', '')}> Update </MDBBtn>
-					<MDBBtn color='info' size='sm' onClick={()=>this.props.formAction('RESET', '')}> Cancel </MDBBtn>
-					<MDBBtn color='info' size='sm' onClick={()=>this.props.formAction('DELETE', '')}> Delete </MDBBtn>
+					<MDBBtn color='primary' size='sm' onClick={()=>this.props.formAction('SAVE', '')}> Save </MDBBtn> 
+					<MDBBtn color='warning' size='sm' onClick={()=>this.props.formAction('UPDATE', '')}> Update </MDBBtn>
+					<MDBBtn color='info' size='sm' onClick={()=>this.props.formAction('RESET', '')}> Cancel </MDBBtn> 
+					<MDBBtn color='danger' size='sm' onClick={()=>this.props.formAction('DELETE', '')}> Delete </MDBBtn>
 				</FormGroup>
 			</Form>
 		)

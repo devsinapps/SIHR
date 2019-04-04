@@ -118,6 +118,9 @@ export default compose(
           },
           {
             collection: 'Interviews'
+          },
+          {
+            collection: 'Task'
           }
         ]
     )

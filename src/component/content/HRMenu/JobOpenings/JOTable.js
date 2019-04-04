@@ -4,7 +4,7 @@ import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
 export const JOTable = ({dataRoutes, formAction}) => {
 	let no = 1
 	return(
-		<MDBTable scrollY scrollX hover striped responsive bordered maxHeight='300px' size='sm'>
+		<MDBTable scrollY scrollX hover striped responsive bordered maxHeight='300px' size='sm' style={{tableLayout: 'fixed'}}>
 			<MDBTableHead>
 				<tr>
 					<th> No </th>
@@ -13,12 +13,12 @@ export const JOTable = ({dataRoutes, formAction}) => {
 					<th> Manager </th>
 					<th> Date Opened </th>
 					<th> Dead Line </th>
-					<th> Job Opening Status </th>
+					<th style={{width: '200px'}}> Job Opening Status </th>
 					<th> Country </th>
 					<th> City </th>
-					<th> State / Province </th>
-					<th> Zip Postal Code </th>
-					<th> Work Experience </th>
+					<th > State / Province </th>
+					<th > Zip Postal Code </th>
+					<th > Work Experience </th>
 					<th> Skill Set </th>
 					<th> Salary </th>
 				</tr>

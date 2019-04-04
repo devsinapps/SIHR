@@ -2,7 +2,8 @@ import React from 'react'
 
 //mdbreact
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
-export const TaskTable = (props) => {
+export const TaskTable = ({dataRoutes, formAction}) => {
+	let no = 1
 	return(
 		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
 			<MDBTableHead>
@@ -17,15 +18,19 @@ export const TaskTable = (props) => {
 				</tr>
 			</MDBTableHead>
 			<MDBTableBody>
-				<tr>
-					<td> No </td>
-					<td> Subject </td>
-					<td> To DO </td>
-					<td> From </td>
-					<td> Due Date </td>
-					<td> Status </td>
-					<td> Priority </td>
-				</tr>
+				{dataRoutes.firestore.ordered.Task && dataRoutes.firestore.ordered.Task.map((data)=>{
+					return(
+						<tr onClick={()=>formAction('GETDATA', data)}>
+							<td> {no++} </td>
+							<td> {data.subject} </td>
+							<td> {data.toDo} </td>
+							<td> {data.fromDate} </td>
+							<td> {data.toDate} </td>
+							<td> {data.status} </td>
+							<td> {data.priority} </td>
+						</tr>
+					)
+				})}
 			</MDBTableBody>
 		</MDBTable>
 	)

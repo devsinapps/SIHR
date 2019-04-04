@@ -13,6 +13,8 @@ import { ContainerRow, ColCard } from './../grid/Custome-Grid'
 import { Form, FormGroup } from 'reactstrap'
 //MDBReact
 import { MDBInput, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
+//mdbreact
+import { ToastContainer, toast } from 'mdbreact'
 class SignIn extends React.Component{
 	state = {
 		email: '',
@@ -48,6 +50,17 @@ class SignIn extends React.Component{
 			[e.target.id]: e.target.value
 		})
 	}
+
+	notify = (type) => {
+		switch(type){
+		   	case "emailNotValid":
+				toast.error("Email Invalid", {
+		          autoClose: 3000
+		        });
+		        break;
+
+		}
+	}
 	
 	formAction = (mode) => {
 		const { email, password } = this.state
@@ -59,11 +72,16 @@ class SignIn extends React.Component{
 				break;
 
 			case 'LOGIN':
-				const dataUser = {
-					email, 
-					password
+				const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				if(!regex.test(email)){
+					this.notify('emailNotValid')
+				}else{
+					const dataUser = {
+						email, 
+						password
+					}
+					this.props.signIn(dataUser)
 				}
-				this.props.signIn(dataUser)
 				break;
 
 			case 'MODAL':
@@ -137,6 +155,11 @@ class SignIn extends React.Component{
 					          <MDBBtn color="primary" onClick={()=>this.formAction('MODAL')}>Close</MDBBtn>
 					        </MDBModalFooter>
 				     	</MDBModal>
+				     	<ToastContainer
+				          hideProgressBar={true}
+				          newestOnTop={true}
+				          autoClose={5000}
+				        />
 					</ColCard>
 				</ContainerRow>
 			</div>

@@ -13,6 +13,8 @@ import { CForm } from './CandidatesForm'
 import { CandidatesTable } from './CandidatesTable'
 //mdbreact
 import { ToastContainer, toast } from 'mdbreact'
+
+const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 class Candidates extends React.Component{
 	state = {
 		loading:true,
@@ -64,6 +66,12 @@ class Candidates extends React.Component{
 
 			case "selectFirst":
 				toast.error("Please Select Data", {
+		          autoClose: 3000
+		        });
+		        break;
+
+		   	case "emailNotValid":
+				toast.error("Email Not Valid", {
 		          autoClose: 3000
 		        });
 		        break;
@@ -124,8 +132,9 @@ class Candidates extends React.Component{
 					skill.length < 1 ||
 					additionalInfo.length < 1){
 					this.notify('formEmpty')
-				}
-				else{
+				}else if(!regex.test(email)){
+					this.notify('emailNotValid')
+				}else{
 					const dataInput = {
 						email,
 						firstname,
@@ -174,6 +183,7 @@ class Candidates extends React.Component{
 						additionalInfo: ''
 					})
 				}
+				
 				break;
 
 			case 'UPDATE':
@@ -200,8 +210,9 @@ class Candidates extends React.Component{
 					skill.length < 1 ||
 					additionalInfo.length < 1){
 					this.notify('selectFirst')
-				}
-				else{
+				}else if(!regex.test(email)){
+					this.notify('emailNotValid')
+				}else{
 					const checkUpd = window.confirm('Update?');
 					if(checkUpd === true){
 						const dataUpdate = {
@@ -258,7 +269,6 @@ class Candidates extends React.Component{
 						return null
 					}	
 				}
-				
 				break;
 
 			case 'DELETE':
