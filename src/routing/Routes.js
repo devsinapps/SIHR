@@ -21,6 +21,7 @@ import HRMenu from './../component/content/HRMenu'
 import JobOpenings from './../component/content/HRMenu/JobOpenings'
 import Candidates from './../component/content/HRMenu/Candidates'
 import Interviews from './../component/content/HRMenu/Interviews'
+import Task from './../component/content/HRMenu/Task'
 //Submission
   //Permisiion
   import Permission from './../component/content/Submission/Permission'
@@ -58,8 +59,8 @@ class Routes extends Component {
           {config.viewPagesInfo}
           <div className={config.contentClass}>
             <Switch>
-              <Route path='/main' component={Main} />
               <Route path='/' render={(routeProps) => (<Dashboard {...routeProps} dataRoutes={dataRoutes}/> )} exact/>  
+              <Route path='/main' component={Main} />
               <Route path='/signin' render={(routeProps) => (<SignIn {...routeProps} dataRoutes={dataRoutes}/> )} />  
               <Route path='/signup' render={(routeProps) => (<SignUp {...routeProps} dataRoutes={dataRoutes}/> )} /> 
               <Route path='/dataemployee' render={(routeProps) => (<DataEmployee {...routeProps} dataRoutes={dataRoutes}/> )} />  
@@ -68,10 +69,11 @@ class Routes extends Component {
               <Route path='/downloadrequests' render={(routeProps) => (<RequestsRecord {...routeProps} dataRoutes={dataRoutes}/> )} /> 
               <Route path='/datausers' render={(routeProps) => (<DataUsers {...routeProps} dataRoutes={dataRoutes}/> )} />  
               
-              <Route path='/hrdashboard' component={HRMenu} />
+              <Route path='/hrdashboard' render={(routeProps) => (<HRMenu {...routeProps} dataRoutes={dataRoutes}/> )} />
               <Route path='/jobsopening' render={(routeProps) => (<JobOpenings {...routeProps} dataRoutes={dataRoutes}/> )} />  
               <Route path='/candidates' render={(routeProps) => (<Candidates {...routeProps} dataRoutes={dataRoutes}/> )} />
               <Route path='/interviews' render={(routeProps) => (<Interviews {...routeProps} dataRoutes={dataRoutes}/> )} />  
+              <Route path='/task' render={(routeProps) => (<Task {...routeProps} dataRoutes={dataRoutes}/> )} /> 
               <Route path='/permission' component={Permission} />
               <Route path='/sampletable' component={SampleDatatable} />
               <Route path='/reactbootstraptable' component={ReactBootstrapTable} />
@@ -97,7 +99,7 @@ export default compose(
             collection: 'kanban', orderBy: ['createdAt', 'desc']
           },
           {
-            collection: 'information', orderBy: ['createdAt', 'desc'],
+            collection: 'information', orderBy: ['createdAt', 'desc']
           },
           {
             collection: 'requests', orderBy: ['createdAt', 'desc']
@@ -107,6 +109,15 @@ export default compose(
           },
           {
             collection: 'users'
+          },
+          {
+            collection: 'JobOpenings'
+          },
+          {
+            collection: 'Candidates'
+          },
+          {
+            collection: 'Interviews'
           }
         ]
     )

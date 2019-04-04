@@ -556,7 +556,6 @@ html{
 							}
 						}
 					}
-					
 					.KanBan{
 						.container-fluid{
 							.row{
@@ -928,6 +927,23 @@ html{
 						}
 					}
 					.Interviews{
+						.container-fluid{
+							.row{
+								.col-lg-12{
+									nav{
+										@extend %breadcrumb-style;
+									}
+									.card{
+										@extend %collapsible-style;
+										.card-body{
+											
+										}
+									}
+								}
+							}
+						}
+					}
+					.Task{
 						.container-fluid{
 							.row{
 								.col-lg-12{

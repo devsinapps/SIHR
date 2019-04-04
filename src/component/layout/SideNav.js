@@ -67,6 +67,14 @@ class SideNav extends React.Component{
 											<FontAwesomeIcon icon="circle-notch" />
 											<Link to='/candidates'> Candidates </Link>
 										</li>
+										<li> 
+											<FontAwesomeIcon icon="circle-notch" />
+											<Link to='/interviews'> Interviews </Link>
+										</li>
+										<li> 
+											<FontAwesomeIcon icon="circle-notch" />
+											<Link to='/task'> Task </Link>
+										</li>
 									</ul>
 								</MDBCollapse>
 								<li onClick={this.toggleCollapse('adminMenu')}>

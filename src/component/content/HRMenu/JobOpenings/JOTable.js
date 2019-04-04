@@ -1,13 +1,15 @@
 import React from 'react'
 //mdbreact
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
-export const JOTable = (props) => {
+export const JOTable = ({dataRoutes, formAction}) => {
+	let no = 1
 	return(
 		<MDBTable scrollY scrollX hover striped responsive bordered maxHeight='300px' size='sm'>
 			<MDBTableHead>
 				<tr>
 					<th> No </th>
 					<th> Job Title </th>
+					<th> Job Type </th>
 					<th> Manager </th>
 					<th> Date Opened </th>
 					<th> Dead Line </th>
@@ -22,51 +24,27 @@ export const JOTable = (props) => {
 				</tr>
 			</MDBTableHead>
 			<MDBTableBody>
-				<tr>
-					<td> 1 </td>
-					<td> Front End </td>
-					<td> Staff </td>
-					<td> 22-03-2019 </td>
-					<td> 28-03-2019 </td>
-					<td> On Progress </td>
-					<td> Indonesia </td>
-					<td> Jakarta </td>
-					<td> Jawa Barat </td>
-					<td> 7128 </td>
-					<td> First Graduate </td>
-					<td> Information Technology </td>
-					<td> 7.000.000,00 </td>
-				</tr>
-				<tr>
-					<td> 2 </td>
-					<td> Back End </td>
-					<td> Staff </td>
-					<td> 22-03-2019 </td>
-					<td> 28-03-2019 </td>
-					<td> On Progress </td>
-					<td> Indonesia </td>
-					<td> Jakarta </td>
-					<td> Jawa Barat </td>
-					<td> 7128 </td>
-					<td> First Graduate </td>
-					<td> Information Technology </td>
-					<td> 7.000.000,00 </td>
-				</tr>
-				<tr>
-					<td> 3 </td>
-					<td> Marketing </td>
-					<td> Staff </td>
-					<td> 22-03-2019 </td>
-					<td> 28-03-2019 </td>
-					<td> On Progress </td>
-					<td> Indonesia </td>
-					<td> Jakarta </td>
-					<td> Jawa Barat </td>
-					<td> 7128 </td>
-					<td> First Graduate </td>
-					<td> Marketing </td>
-					<td> 7.000.000,00 </td>
-				</tr>
+				{dataRoutes.firestore.ordered.JobOpenings && dataRoutes.firestore.ordered.JobOpenings.map((data)=>{
+					return(
+						<tr onClick={()=>formAction('GETDATA', data)}>
+							<td> {no++} </td>
+							<td> {data.postingTitle} </td>
+							<td> {data.jobType} </td>
+							<td> {data.accountManager} </td>
+							<td> {data.dateOpened} </td>
+							<td> {data.targetDate} </td>
+							<td> {data.jobStatus} </td>
+							<td> {data.country} </td>
+							<td> {data.city} </td>
+							<td> {data.stateProvince} </td>
+							<td> {data.zip} </td>
+							<td> {data.experience} </td>
+							<td> {data.skill} </td>
+							<td> {data.salary} </td>
+						</tr>
+					)
+				})}
+				
 			</MDBTableBody>
 
 		</MDBTable>

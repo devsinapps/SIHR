@@ -1,7 +1,7 @@
 import React from 'react'
 //mdbreact
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
-export const InterviewsTable = (props) => {
+export const InterviewsTable = ({dataRoutes, formAction}) => {
 	return(
 		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
 			<MDBTableHead>
@@ -20,71 +20,23 @@ export const InterviewsTable = (props) => {
 				</tr>
 			</MDBTableHead>
 			<MDBTableBody>
-				<tr>
-					<td> No </td>
-					<td> Interview Name </td>
-					<td> Candidate Name </td>
-					<td> Client Name </td>
-					<td> Posting Title </td>
-					<td> From </td>
-					<td> To </td>
-					<td> Interviewr(s) </td>
-					<td> Interview Owner </td>
-					<td> Location </td>
-					<td> Schedule Comments </td>
-				</tr>
-				<tr>
-					<td> No </td>
-					<td> Interview Name </td>
-					<td> Candidate Name </td>
-					<td> Client Name </td>
-					<td> Posting Title </td>
-					<td> From </td>
-					<td> To </td>
-					<td> Interviewr(s) </td>
-					<td> Interview Owner </td>
-					<td> Location </td>
-					<td> Schedule Comments </td>
-				</tr>
-				<tr>
-					<td> No </td>
-					<td> Interview Name </td>
-					<td> Candidate Name </td>
-					<td> Client Name </td>
-					<td> Posting Title </td>
-					<td> From </td>
-					<td> To </td>
-					<td> Interviewr(s) </td>
-					<td> Interview Owner </td>
-					<td> Location </td>
-					<td> Schedule Comments </td>
-				</tr>
-				<tr>
-					<td> No </td>
-					<td> Interview Name </td>
-					<td> Candidate Name </td>
-					<td> Client Name </td>
-					<td> Posting Title </td>
-					<td> From </td>
-					<td> To </td>
-					<td> Interviewr(s) </td>
-					<td> Interview Owner </td>
-					<td> Location </td>
-					<td> Schedule Comments </td>
-				</tr>
-				<tr>
-					<td> No </td>
-					<td> Interview Name </td>
-					<td> Candidate Name </td>
-					<td> Client Name </td>
-					<td> Posting Title </td>
-					<td> From </td>
-					<td> To </td>
-					<td> Interviewr(s) </td>
-					<td> Interview Owner </td>
-					<td> Location </td>
-					<td> Schedule Comments </td>
-				</tr>
+				{dataRoutes.firestore.ordered.Interviews && dataRoutes.firestore.ordered.Interviews.map((data)=>{
+					return(
+					<tr onClick={()=>formAction('GETDATA', data)}>
+						<td> No </td>
+						<td> {data.interviewName} </td>
+						<td> {data.candidateName} </td>
+						<td> {data.clientName} </td>
+						<td> {data.postingTitle} </td>
+						<td> {data.fromDate} </td>
+						<td> {data.toDate} </td>
+						<td> {data.interviewer} </td>
+						<td> {data.interviewOwner} Owner </td>
+						<td> {data.location} </td>
+						<td> {data.scheduleComments} </td>
+					</tr>	
+					)
+				})}
 			</MDBTableBody>
 		</MDBTable>
 	)

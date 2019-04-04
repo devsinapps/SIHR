@@ -2,7 +2,8 @@ import React from 'react'
 
 //mdbreact
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
-export const CandidatesTable = (props) => {
+export const CandidatesTable = ({dataRoutes, formAction}) => {
+	let no = 1
 	return(
 		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
 			<MDBTableHead>
@@ -13,7 +14,6 @@ export const CandidatesTable = (props) => {
 					<th> Phone </th>
 					<th> Mobile </th>
 					<th> Website </th>
-					<th> Address </th>
 					<th> Zip Postal Code </th>
 					<th> Country </th>
 					<th> City </th>
@@ -23,36 +23,24 @@ export const CandidatesTable = (props) => {
 				</tr>
 			</MDBTableHead>
 			<MDBTableBody>
-				<tr>
-					<td> 1 </td>
-					<td> John Doe </td>
-					<td> johndoe@gmail.com </td>
-					<td> 02199830123 </td>
-					<td> +62987871268 </td>
-					<td> johndoe.wix.com </td>
-					<td> Jakarta </td>
-					<td> 7128 </td>
-					<td> Indonesia </td>
-					<td> Jakarta </td>
-					<td> Jawa Barat </td>
-					<td> 1 years designer </td>
-					<td> Adobe </td>
-				</tr>
-				<tr>
-					<td> 2 </td>
-					<td> Jane Doe </td>
-					<td> janedoe@gmail.com </td>
-					<td> 02199830123 </td>
-					<td> +62987871268 </td>
-					<td> johndoe.wix.com </td>
-					<td> Jakarta </td>
-					<td> 7128 </td>
-					<td> Indonesia </td>
-					<td> Jakarta </td>
-					<td> Jawa Barat </td>
-					<td> 1 years designer </td>
-					<td> Adobe </td>
-				</tr>
+				{dataRoutes.firestore.ordered.Candidates && dataRoutes.firestore.ordered.Candidates.map((data)=>{
+					return(
+						<tr onClick={()=>formAction('GETDATA', data)}>
+							<td> 1 </td>
+							<td> {data.firstname + ' ' + data.lastname} </td>
+							<td> {data.email} </td>
+							<td> {data.phone} </td>
+							<td> {data.mobile} </td>
+							<td> {data.website} </td>
+							<td> {data.zip} </td>
+							<td> {data.country} </td>
+							<td> {data.city} </td>
+							<td> {data.stateProvince} </td>
+							<td> {data.experience} </td>
+							<td> {data.skill} </td>
+						</tr>
+					)
+				})}
 			</MDBTableBody>
 		</MDBTable>
 	)

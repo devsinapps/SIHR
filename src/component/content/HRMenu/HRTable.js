@@ -2,7 +2,7 @@ import React from 'react'
 
 //mdbreact
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
-export const TableInteviews = (props) => {
+export const TableInteviews = ({dataRoutes}) => {
 	return(
 		<MDBTable scrollY scrollX bordered responsive hover striped size='sm' maxHeight="300px">
 			<MDBTableHead>
@@ -67,66 +67,49 @@ export const TableInteviews = (props) => {
 	)
 }
 
-export const TableJobOpening = (props) => {
+export const TableJobOpening = ({dataRoutes}) => {
+	let no = 1
 	return(
 		<MDBTable scrollY scrollX bordered responsive hover striped size='sm' maxHeight="300px">
 			<MDBTableHead>
 				<tr>
-					<th> </th>
-					<th> Posting Title </th>
-					<th> Jobs Opening Status </th>
-					<th> City </th>
-					<th> Client Name </th>
+					<th> No </th>
+					<th> Job Title </th>
 					<th> Job Type </th>
-					<th> No OF Candidates Assosiated </th>
+					<th> Manager </th>
+					<th> Date Opened </th>
+					<th> Dead Line </th>
+					<th> Job Opening Status </th>
+					<th> Country </th>
+					<th> City </th>
+					<th> State / Province </th>
+					<th> Zip Postal Code </th>
+					<th> Work Experience </th>
+					<th> Skill Set </th>
+					<th> Salary </th>
 				</tr>
 			</MDBTableHead>
 			<MDBTableBody>
-				<tr>
-					<td> </td>
-					<td> Front End </td>
-					<td> In Progress </td>
-					<td> Jakarta </td>
-					<td> Fresh Graduate </td>
-					<td> Full Time </td>
-					<td> 1 </td>
-				</tr>
-				<tr>
-					<td> </td>
-					<td> Front End </td>
-					<td> In Progress </td>
-					<td> Jakarta </td>
-					<td> Fresh Graduate </td>
-					<td> Full Time </td>
-					<td> 1 </td>
-				</tr>
-				<tr>
-					<td> </td>
-					<td> Front End </td>
-					<td> In Progress </td>
-					<td> Jakarta </td>
-					<td> Fresh Graduate </td>
-					<td> Full Time </td>
-					<td> 1 </td>
-				</tr>
-				<tr>
-					<td> </td>
-					<td> Front End </td>
-					<td> In Progress </td>
-					<td> Jakarta </td>
-					<td> Fresh Graduate </td>
-					<td> Full Time </td>
-					<td> 1 </td>
-				</tr>
-				<tr>
-					<td> </td>
-					<td> Front End </td>
-					<td> In Progress </td>
-					<td> Jakarta </td>
-					<td> Fresh Graduate </td>
-					<td> Full Time </td>
-					<td> 1 </td>
-				</tr>
+				{dataRoutes.firestore.ordered.JobOpenings && dataRoutes.firestore.ordered.JobOpenings.map((data)=>{
+					return(
+						<tr>
+							<td> {no++} </td>
+							<td> {data.postingTitle} </td>
+							<td> {data.jobType} </td>
+							<td> {data.accountManager} </td>
+							<td> {data.dateOpened} </td>
+							<td> {data.targetDate} </td>
+							<td> {data.jobStatus} </td>
+							<td> {data.country} </td>
+							<td> {data.city} </td>
+							<td> {data.stateProvince} </td>
+							<td> {data.zip} </td>
+							<td> {data.experience} </td>
+							<td> {data.skill} </td>
+							<td> {data.salary} </td>
+						</tr>
+					)
+				})}
 			</MDBTableBody>
 		</MDBTable>
 	)
