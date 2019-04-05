@@ -164,7 +164,7 @@ class Task extends Component{
 		const { id,	subject,	toDo,	fromDate,	toDate,	status,	priority } = this.state
 		const { dataRoutes } = this.props
 		const value = { id,	subject,	toDo,	fromDate,	toDate,	status,	priority }
-		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
+		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
 				<div className='Task'>

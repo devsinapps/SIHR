@@ -368,7 +368,7 @@ class Candidates extends React.Component{
 		const { dataRoutes } = this.props 
 		const { id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo } = this.state
 		const value = { id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo }
-		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
+		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
 				<div className='Candidates'>

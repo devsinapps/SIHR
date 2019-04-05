@@ -263,18 +263,18 @@ class JobOpenings extends React.Component{
 		const { postingTitle,accountManager,dateOpened,targetDate,jobType,jobStatus,country,city,stateProvince,zip,experience,skill,salary } = this.state
 		const { dataRoutes } = this.props 
 		const value = { postingTitle,accountManager,dateOpened,targetDate,jobType,jobStatus,country,city,stateProvince,zip,experience,skill,salary };
-		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
+		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
 				<div className='JobOpenings'>
 					<ContainerFluidRow>
-						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='test'>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Job Openings'>
 							<JOTable 
 								dataRoutes={dataRoutes}
 								formAction={this.formAction}
 							/>
 						</Collapsible>
-						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='test'>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Create Job Openings'>
 							<JOForm 
 								value={value}
 								onChange={this.onChange}
