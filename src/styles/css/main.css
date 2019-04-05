@@ -293,16 +293,10 @@ html body {
           html body #root .App .Content .Dashboard .container-fluid .row .col-lg-12 .row .col-lg-8 .row .col-lg-12:nth-child(2) .InformationSummary .card .PinLogo img {
             width: 50px;
             height: 50px; }
-      html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table thead tr {
-        background-color: #0fb9b1; }
-        html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table thead tr th {
-          color: #fdfdfd;
-          text-align: center;
-          font-weight: bold;
-          width: 400px; }
-      html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table tbody tr td {
-        color: #3b3d45;
+      html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table thead tr th {
         text-align: center; }
+      html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee table tbody tr td {
+        color: #3b3d45; }
       html body #root .App .Content .DataEmployee .container-fluid .row .col-lg-12 .card .card-body .TableEmployee .ExportButton {
         margin-top: 5px;
         margin-bottom: 5px; }
@@ -448,16 +442,10 @@ html body {
           transition: all .2s; }
           html body #root .App .Content .Requests .container-fluid .row .col-lg-12 .row .col-lg-8 .row .col-lg-12 .card .card-body .ActionBtn svg {
             color: #747d8c; }
-      html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table table thead tr {
-        background-color: #0fb9b1; }
-        html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table table thead tr th {
-          color: #fdfdfd;
-          text-align: center;
-          font-weight: bold;
-          width: 400px; }
-      html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table table tbody tr td {
-        color: #3b3d45;
+      html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table table thead tr th {
         text-align: center; }
+      html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table table tbody tr td {
+        color: #3b3d45; }
       html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table .ExportButton {
         margin-top: 5px;
         margin-bottom: 5px; }
@@ -472,16 +460,26 @@ html body {
           transition: all .2s; }
           html body #root .App .Content .RequestsRecord .container-fluid .row .col-lg-12 .card .card-body ._Table .ExportButton ._Button:active {
             box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5); }
-      html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table thead tr {
-        background-color: #0fb9b1; }
-        html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
-          color: #fdfdfd;
-          text-align: center;
-          font-weight: bold;
-          width: 400px; }
-      html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
-        color: #3b3d45;
+      html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
         text-align: center; }
+      html body #root .App .Content .DataUsers .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
+        color: #3b3d45; }
+      html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
+        text-align: center; }
+      html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
+        color: #3b3d45; }
+      html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
+        text-align: center; }
+      html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
+        color: #3b3d45; }
+      html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
+        text-align: center; }
+      html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
+        color: #3b3d45; }
+      html body #root .App .Content .Task .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
+        text-align: center; }
+      html body #root .App .Content .Task .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
+        color: #3b3d45; }
     html body #root .App .Content_Slider {
       left: 0; }
     html body #root .App .Content-Auth {

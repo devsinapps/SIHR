@@ -1,37 +1,80 @@
 import React from 'react'
 
 //mdbreact
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
+import { MDBDataTable } from 'mdbreact'
 export const TaskTable = ({dataRoutes, formAction}) => {
+	const Task  = dataRoutes.firestore.ordered.Task
 	let no = 1
+	const data = {
+		columns: [
+			{
+		        label: 'No',
+		        field: 'no',
+		        sort: 'asc',
+		        width: 50
+	        },
+	        {
+		        label: 'Subject',
+		        field: 'subject',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'To DO ',
+		        field: 'todo',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'From ',
+		        field: 'from',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Due Date',
+		        field: 'dueDate',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Status',
+		        field: 'status',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Priority',
+		        field: 'priority',
+		        sort: 'asc',
+		        width: 150
+	        }
+		],
+		rows: Task && Task.map((data)=>{
+			return(
+				{
+					clickEvent: ()=>formAction('GETDATA', data),
+	    			no: no++,
+	    			subject: data.subject,
+	    			todo: data.todo,
+	    			from: data.fromDate,
+	    			dueDate: data.toDate,
+	    			status: data.status,
+	    			priority: data.priority,
+				}
+			)
+		})
+	}
 	return(
-		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
-			<MDBTableHead>
-				<tr>
-					<th> No </th>
-					<th> Subject </th>
-					<th> To DO </th>
-					<th> From </th>
-					<th> Due Date </th>
-					<th> Status </th>
-					<th> Priority </th>
-				</tr>
-			</MDBTableHead>
-			<MDBTableBody>
-				{dataRoutes.firestore.ordered.Task && dataRoutes.firestore.ordered.Task.map((data)=>{
-					return(
-						<tr onClick={()=>formAction('GETDATA', data)}>
-							<td> {no++} </td>
-							<td> {data.subject} </td>
-							<td> {data.toDo} </td>
-							<td> {data.fromDate} </td>
-							<td> {data.toDate} </td>
-							<td> {data.status} </td>
-							<td> {data.priority} </td>
-						</tr>
-					)
-				})}
-			</MDBTableBody>
-		</MDBTable>
+		<MDBDataTable
+		  scrollY
+		  scrollX
+	      striped
+	      bordered
+	      small
+	      hover
+	      maxheight='300px'
+	      data={data}
+	    />
 	)
 }

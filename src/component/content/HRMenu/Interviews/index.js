@@ -211,7 +211,7 @@ class Interviews extends Component{
 		const { dataRoutes } = this.props
 		const { interviewName,candidateName,clientName,postingTitle,fromDate,toDate,interviewer,interviewOwner,location,scheduleComments } = this.state
 		const value = { interviewName,candidateName,clientName,postingTitle,fromDate,toDate,interviewer,interviewOwner,location,scheduleComments }
-		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
+		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
 				<div className='Interviews'>

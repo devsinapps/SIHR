@@ -4,38 +4,69 @@ import moment from 'moment'
 //Reactstrap
 import { Table } from 'reactstrap'
 //mdbreact
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact';
-class TableUser extends React.Component{
-	render(){
-		const { value, dataRoutes } = this.props
-		let number = 1
-		return(
-			<MDBTable scrollX scrollY striped bordered responsive hover  maxHeight="300px">
-				<MDBTableHead>
-					<tr>
-						<th style={{width: '40px'}}> No </th>
-						<th> Name </th>
-						<th> Email </th>
-						<th style={{width: '250px'}}> Join Date </th>
-						<th style={{width: '80px'}}> Level </th>
-					</tr>
-				</MDBTableHead>
-				<MDBTableBody>
-					{dataRoutes.firestore.ordered.users && dataRoutes.firestore.ordered.users.map((user)=>{
-						return(
-							<tr onClick={() => this.props.formAction('GETUSER', user)}>
-								<td> {number++} </td>
-								<td> {user.firstName + ' ' + user.lastName} </td>
-								<td> {user.email} </td>
-								<td> {moment(user.joinDate.toDate().toString()).format("MMM Do YY")}</td>
-								<td> {user.level} </td>
-							</tr>
-						)
-					})}
-				</MDBTableBody>
-			</MDBTable>
-		)
+import { MDBDataTable } from 'mdbreact';
+
+const TableUser = ({dataRoutes, formAction}) => {
+	const users = dataRoutes.firestore.ordered.users
+	let no = 1
+	const data = {
+		columns: [
+			{
+				label: 'No',
+		        field: 'no',
+		        sort: 'asc',
+		        width: 50
+			},
+			{
+				label: 'Name',
+		        field: 'name',
+		        sort: 'asc',
+		        width: 150
+			},
+			{
+				label: 'Email',
+		        field: 'email',
+		        sort: 'asc',
+		        width: 150
+			}, 
+			{
+				label: 'Join Date',
+		        field: 'joinDate',
+		        sort: 'asc',
+		        width: 100
+			},
+			{
+				label: 'Level',
+		        field: 'level',
+		        sort: 'asc',
+		        width: 100
+			}
+		],
+		rows: users && users.map((data)=>{
+			return(
+				{
+					clickEvent: ()=>formAction('GETDATA', data),
+	    			no: no++,
+	    			name: data.firstName + ' ' + data.lastName,
+	    			email: data.email,
+	    			joinDate: moment(data.joinDate.toDate().toString()).format("MMM Do YY"),
+	    			level: data.level,
+				}
+			)
+		})
 	}
+	return(
+		<MDBDataTable
+		  scrollY
+		  scrollX
+	      striped
+	      bordered
+	      small
+	      hover
+	      maxheight='300px'
+	      data={data}
+	    />
+	)
 }
 
 export default TableUser

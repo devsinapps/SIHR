@@ -4,69 +4,137 @@ import ReactToExcel from 'react-html-table-to-excel'
 
 import { Table } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact';
+import { MDBDataTable } from 'mdbreact';
 
-class EmployeeTable extends React.Component{
-	render(){
-		const { dataRoutes } = this.props
-		const excel = <FontAwesomeIcon icon="file-excel" />
-		let number = 1
-		return(
-			<div className='TableEmployee'>
-				<MDBTable scrollX scrollY striped bordered responsive hover  maxHeight="300px">
-					<MDBTableHead>
-						<tr>
-							<th> No </th>
-							<th style={{display: "none"}}> Id </th>
-							<th style={{width: '300px'}}> FirstName </th>
-							<th> LastName </th>
-							<th> Age </th>
-							<th> Address </th>
-							<th> Id Card </th>
-							<th> Gender </th>								
-							<th> DoB </th>
-							<th> PoB </th>
-							<th> Join Date </th>
-							<th style={{width: "850px"}}> Division </th>
-							<th> Status </th>
-							<th> Active </th>
-						</tr> 
-					</MDBTableHead>
-					<MDBTableBody>
-						{dataRoutes.firestore.ordered.employees && dataRoutes.firestore.ordered.employees.map((employee)=>{
-							return(
-								<tr key={employee.id} onClick={() => this.props.formAction('GETDATA', employee)}>
-									<td style={{textAlign: "center"}}> {number++} </td>
-									<td style={{display: "none"}}> {employee.id} </td>
-									<td> {employee.firstName} </td>
-									<td> {employee.lastName} </td>
-									<td> {employee.age} </td>
-									<td> {employee.address} </td>
-									<td> {employee.idCard} </td>
-									<td> {employee.gender} </td>
-									<td> {employee.dob} </td>
-									<td> {employee.pob} </td>
-									<td> {employee.dateJoin} </td>
-									<td  style={{width: "450px"}}> {employee.division} </td>
-									<td> {employee.status} </td>
-									<td> {employee.active} </td>
-								</tr>
-							)
-						})}
-					</MDBTableBody>
-				</MDBTable>
-				<div className="ExportButton">
-					<ReactToExcel
-						className='_Button'
-						table="table_employee"
-						filename="data employee"
-						sheet="sheet 1"
-						buttonText={excel}
-					/>
-				</div>
-			</div>
-		)
+const EmployeeTable = ({dataRoutes, formAction}) => {
+	const employees = dataRoutes.firestore.ordered.employees
+	const excel = <FontAwesomeIcon icon="file-excel" />
+	let no = 1
+	const data = {
+		columns: [
+			{
+		        label: 'No',
+		        field: 'no',
+		        sort: 'asc',
+		        width: 50
+	        },
+	        {
+		        label: 'FirstName',
+		        field: 'firstName',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'LastName',
+		        field: 'lastName',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Age',
+		        field: 'age',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Address',
+		        field: 'address',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'Id Card',
+		        field: 'idCard',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Gender',
+		        field: 'gender',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'DoB',
+		        field: 'dob',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'PoB',
+		        field: 'pob',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Join Date',
+		        field: 'joinDate',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Division',
+		        field: 'division',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'Status',
+		        field: 'status',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Active',
+		        field: 'active',
+		        sort: 'asc',
+		        width: 100
+	        }
+		],
+		rows: employees && employees.map((data)=>{
+			return(
+				{
+					clickEvent: ()=>formAction('GETDATA', data),
+	    			no: no++,
+	    			firstName: data.firstName,
+			        lastName: data.lastName,
+			        age: data.age,
+			        address: data.address,
+			        idCard: data.idCard,
+			        gender: data.gender,
+			        dob: data.dob,
+			        pob: data.pob,
+			        joinDate: data.dateJoin,
+			        division: data.division,
+			        status: data.status,
+			        active: data.active
+				}
+			)
+		})
 	}
+	return(
+		<div className='TableEmployee'>
+			<MDBDataTable
+			  scrollY
+			  scrollX
+		      striped
+		      bordered
+		      small
+		      hover
+		      maxheight='300px'
+		      data={data}
+		    />
+		    <div className="ExportButton">
+				<ReactToExcel
+					className='_Button'
+					table="table_employee"
+					filename="data employee"
+					sheet="sheet 1"
+					buttonText={excel}
+				/>
+			</div>
+		</div>
+	)
 }
 
 export default EmployeeTable

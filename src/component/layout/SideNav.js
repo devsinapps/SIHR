@@ -26,7 +26,7 @@ class SideNav extends React.Component{
 			<div className='SideNav'>
 				<div className='LeftSide'>
 					<div className='_Header'>
-						<h1> SIHR </h1>
+						<h1>  </h1>
 					</div>
 					<div className='_mainMenu'>
 						<ul> 

@@ -41,7 +41,7 @@ class DataUsers extends React.Component{
 	formAction = (mode, dataUser) => {
 		const { id, firstName, lastName, nickName, initials, email, password, division, level, joinDate } = this.state
 		switch(mode){
-			case 'GETUSER':
+			case 'GETDATA':
 				this.setState({
 					id: dataUser.id,
 					firstName: dataUser.firstName,
@@ -115,7 +115,7 @@ class DataUsers extends React.Component{
 		const { dataRoutes } = this.props
 		const { loading, id, firstName, lastName, email, password, level, joinDate } = this.state
 		const value = { id, firstName, lastName, email, password, level, joinDate }
-		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/' />;
+		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/' />;
 		if(loading != true){
 			return(
 				<div className="DataUsers">

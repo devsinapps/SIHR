@@ -268,13 +268,13 @@ class JobOpenings extends React.Component{
 			return(
 				<div className='JobOpenings'>
 					<ContainerFluidRow>
-						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Job Openings'>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='test'>
 							<JOTable 
 								dataRoutes={dataRoutes}
 								formAction={this.formAction}
 							/>
 						</Collapsible>
-						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Form Job Openings'>
+						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='test'>
 							<JOForm 
 								value={value}
 								onChange={this.onChange}

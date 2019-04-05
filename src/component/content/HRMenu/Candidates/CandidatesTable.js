@@ -1,47 +1,109 @@
 import React from 'react'
 
 //mdbreact
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
+import { MDBDataTable, MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
 export const CandidatesTable = ({dataRoutes, formAction}) => {
+	const Candidates = dataRoutes.firestore.ordered.Candidates
 	let no = 1
+	const data = {
+		columns: [
+			{
+		        label: 'No',
+		        field: 'no',
+		        sort: 'asc',
+		        width: 50
+	        },
+	        {
+		        label: 'Name',
+		        field: 'name',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Email',
+		        field: 'email',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Phone',
+		        field: 'phone',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Mobile',
+		        field: 'mobile',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Zip Postal Code',
+		        field: 'zip',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'Country',
+		        field: 'country',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'City',
+		        field: 'city',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'State / Province',
+		        field: 'state',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'Experience',
+		        field: 'experience',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'Skill',
+		        field: 'skill',
+		        sort: 'asc',
+		        width: 250
+	        }
+		],
+		rows: Candidates && Candidates.map((data)=>{
+			return(
+				{
+					clickEvent: ()=>formAction('GETDATA', data),
+					no: no++,
+					name: data.firstname + ' ' + data.lastname,
+					email: data.email,
+					phone: data.phone,
+					mobile: data.mobile,
+					zip: data.zip,
+					country: data.country,
+					city: data.city,
+					state: data.stateProvince,
+					experience: data.experience,
+					skill: data.skill,
+				}
+			)
+		})
+	}
+	
 	return(
-		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
-			<MDBTableHead>
-				<tr>
-					<th> No </th>
-					<th> Name </th>
-					<th> Email </th>
-					<th> Phone </th>
-					<th> Mobile </th>
-					<th> Website </th>
-					<th> Zip Postal Code </th>
-					<th> Country </th>
-					<th> City </th>
-					<th> State / Province </th>
-					<th> Experience </th>
-					<th> Skill </th>
-				</tr>
-			</MDBTableHead>
-			<MDBTableBody>
-				{dataRoutes.firestore.ordered.Candidates && dataRoutes.firestore.ordered.Candidates.map((data)=>{
-					return(
-						<tr onClick={()=>formAction('GETDATA', data)}>
-							<td> 1 </td>
-							<td> {data.firstname + ' ' + data.lastname} </td>
-							<td> {data.email} </td>
-							<td> {data.phone} </td>
-							<td> {data.mobile} </td>
-							<td> {data.website} </td>
-							<td> {data.zip} </td>
-							<td> {data.country} </td>
-							<td> {data.city} </td>
-							<td> {data.stateProvince} </td>
-							<td> {data.experience} </td>
-							<td> {data.skill} </td>
-						</tr>
-					)
-				})}
-			</MDBTableBody>
-		</MDBTable>
+		<MDBDataTable
+		  scrollY
+		  scrollX
+	      striped
+	      bordered
+	      small
+	      hover
+	      maxheight='300px'
+	      data={data}
+	    />
 	)
 }

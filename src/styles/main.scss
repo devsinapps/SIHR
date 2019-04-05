@@ -513,12 +513,8 @@ html{
 												table{
 													thead{
 														tr{
-															background-color: #0fb9b1;
 															th{
-																color: #fdfdfd;
 																text-align: center;
-																font-weight: bold;
-																width: 400px;
 															}
 														}
 													}
@@ -526,7 +522,6 @@ html{
 														tr{
 															td{
 																color: #3b3d45;
-																text-align: center;
 															}
 														}
 													}
@@ -812,12 +807,8 @@ html{
 												table{
 													thead{
 														tr{
-															background-color: #0fb9b1;
 															th{
-																color: #fdfdfd;
 																text-align: center;
-																font-weight: bold;
-																width: 400px;
 															}
 														}
 													}
@@ -825,7 +816,6 @@ html{
 														tr{
 															td{
 																color: #3b3d45;
-																text-align: center;
 															}
 														}
 													}
@@ -868,12 +858,8 @@ html{
 											table{
 												thead{
 													tr{
-														background-color: #0fb9b1;
 														th{
-															color: #fdfdfd;
 															text-align: center;
-															font-weight: bold;
-															width: 400px;
 														}
 													}
 												}
@@ -881,7 +867,6 @@ html{
 													tr{
 														td{
 															color: #3b3d45;
-															text-align: center;
 														}
 													}
 												}
@@ -902,7 +887,22 @@ html{
 									.card{
 										@extend %collapsible-style;
 										.card-body{
-											
+											table{
+												thead{
+													tr{
+														th{
+															text-align: center;
+														}
+													}
+												}
+												tbody{
+													tr{
+														td{
+															color: #3b3d45;
+														}
+													}
+												}
+											}
 										}
 									}
 								}
@@ -919,7 +919,22 @@ html{
 									.card{
 										@extend %collapsible-style;
 										.card-body{
-											
+											table{
+												thead{
+													tr{
+														th{
+															text-align: center;
+														}
+													}
+												}
+												tbody{
+													tr{
+														td{
+															color: #3b3d45;
+														}
+													}
+												}
+											}
 										}
 									}
 								}
@@ -936,7 +951,22 @@ html{
 									.card{
 										@extend %collapsible-style;
 										.card-body{
-											
+											table{
+												thead{
+													tr{
+														th{
+															text-align: center;
+														}
+													}
+												}
+												tbody{
+													tr{
+														td{
+															color: #3b3d45;
+														}
+													}
+												}
+											}
 										}
 									}
 								}
@@ -953,7 +983,22 @@ html{
 									.card{
 										@extend %collapsible-style;
 										.card-body{
-											
+											table{
+												thead{
+													tr{
+														th{
+															text-align: center;
+														}
+													}
+												}
+												tbody{
+													tr{
+														td{
+															color: #3b3d45;
+														}
+													}
+												}
+											}
 										}
 									}
 								}

@@ -1,44 +1,107 @@
 import React from 'react'
 //mdbreact
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact'
+import { MDBDataTable } from 'mdbreact'
 export const InterviewsTable = ({dataRoutes, formAction}) => {
+	const Interviews = dataRoutes.firestore.ordered.Interviews
 	let no = 1;
+	const data = {
+		columns: [
+			{
+		        label: 'No',
+		        field: 'no',
+		        sort: 'asc',
+		        width: 50
+	        },
+	        {
+		        label: 'Interview Name',
+		        field: 'interviewName',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Candidate Name',
+		        field: 'candidateName',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Client Name',
+		        field: 'clientName',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Posting Title',
+		        field: 'title',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'From',
+		        field: 'from',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'To',
+		        field: 'to',
+		        sort: 'asc',
+		        width: 100
+	        },
+	        {
+		        label: 'Interviewer(s)',
+		        field: 'interviewer',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Interview Owner',
+		        field: 'interviewerOwner',
+		        sort: 'asc',
+		        width: 150
+	        },
+	        {
+		        label: 'Location',
+		        field: 'location',
+		        sort: 'asc',
+		        width: 250
+	        },
+	        {
+		        label: 'Schedule Comments',
+		        field: 'schedule',
+		        sort: 'asc',
+		        width: 250
+	        }
+		],
+		rows: Interviews && Interviews.map((data)=>{
+			return(
+				{
+					clickEvent: ()=>formAction('GETDATA', data),
+					no: no++,
+	    			interviewName: data.interviewName,
+			        candidateName: data.candidateName,
+			        clientName: data.clientName,
+			        title: data.postingTitle,
+			        from: data.fromDate,
+			        to: data.toDate,
+			        interviewer: data.interviewer,
+			        interviewerOwner: data.interviewOwner,
+			        location: data.location,
+			        schedule: data.scheduleComments,
+				}
+			)
+		})
+	}
 	return(
-		<MDBTable scrollY scrollX hover bordered striped responsive maxHeight='300px'>
-			<MDBTableHead>
-				<tr>
-					<th> No </th>
-					<th> Interview Name </th>
-					<th> Candidate Name </th>
-					<th> Client Name </th>
-					<th> Posting Title </th>
-					<th> From </th>
-					<th> To </th>
-					<th> Interviewr(s) </th>
-					<th> Interview Owner </th>
-					<th> Location </th>
-					<th> Schedule Comments </th>
-				</tr>
-			</MDBTableHead>
-			<MDBTableBody>
-				{dataRoutes.firestore.ordered.Interviews && dataRoutes.firestore.ordered.Interviews.map((data)=>{
-					return(
-					<tr onClick={()=>formAction('GETDATA', data)}>
-						<td> {no++} </td>
-						<td> {data.interviewName} </td>
-						<td> {data.candidateName} </td>
-						<td> {data.clientName} </td>
-						<td> {data.postingTitle} </td>
-						<td> {data.fromDate} </td>
-						<td> {data.toDate} </td>
-						<td> {data.interviewer} </td>
-						<td> {data.interviewOwner} Owner </td>
-						<td> {data.location} </td>
-						<td> {data.scheduleComments} </td>
-					</tr>	
-					)
-				})}
-			</MDBTableBody>
-		</MDBTable>
+		<MDBDataTable
+		  scrollY
+		  scrollX
+	      striped
+	      bordered
+	      small
+	      hover
+	      maxheight='300px'
+	      data={data}
+	    />
 	)
 }
