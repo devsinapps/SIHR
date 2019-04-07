@@ -1,4 +1,7 @@
 import React from 'react'
+//assets
+import Loading from './../../assets/images/Loading.png'
+//actions
 import { signUp } from './../../store/actions/authActions'
 //Tools
 import { Link } from 'react-router-dom'
@@ -19,7 +22,8 @@ class SignUp extends React.Component{
 		email: '',
 		checkMail: '',
 		password: '',
-		isExpanded: false
+		isExpanded: false,
+		loading: false
 	}
 
 	onChange = (e) => {
@@ -77,6 +81,9 @@ class SignUp extends React.Component{
 					this.notify('PasswordToShort')
 				}else{
 					this.props.signUp(dataUser)
+					this.setState({
+						loading: true
+					})
 				}
 				break;
 
@@ -86,7 +93,7 @@ class SignUp extends React.Component{
 	}
 
 	render(){
-		const { firstName, lastName, email, checkMail, password } = this.state
+		const { loading, firstName, lastName, email, checkMail, password } = this.state
 		const { isExpanded } = this.state
 		const { dataRoutes } = this.props
 		const config = {
@@ -99,89 +106,97 @@ class SignUp extends React.Component{
 					 password.length > 0
 		}
 		if(dataRoutes.firebase.auth.uid != null) return <Redirect to='/' />;
-		return(
-			<div className="SignUp">
-				<ContainerRow rowClass='justify-content-center'>
-					<ColCard lgCol='5' mdCol='8' smCol='10' colClass='mx-auto' brCard='mb-3' tlCard=''>
-					<Form>
-						 <p className="h4 text-center mb-4">Sign Up</p>
-						<FormGroup>
-							<MDBInput 
-								id="firstName"
-								label="First name" 
-								size='lg'
-								outline size="md"
-								icon="user"
-								value={firstName}
-								onChange={this.onChange}
-							/>	
-						</FormGroup>
-						<FormGroup>
-							<MDBInput 
-								id="lastName"
-								label="Last Name" 
-								size='lg'
-								outline size="md"
-								icon="user"
-								value={lastName}
-								onChange={this.onChange}
-							/>
-						</FormGroup>
-						<FormGroup>
-							<MDBInput 
-								id="email"
-								label="Your email" 
-								size='lg'
-								outline size="md"
-								icon='envelope'
-								value={email}
-								onChange={this.onChange}
-							/>
-						</FormGroup>
-						<FormGroup>
-							<MDBInput 
-								id="checkMail"
-								label="Confirm your email" 
-								size='lg'
-								onChange={this.onChange}
-								outline size="md"
-								value={checkMail}
-								icon="exclamation-triangle"
-								onChange={this.onChange}
-							/>
-						</FormGroup>
-						<FormGroup>
-							<MDBInput 
-								id="password"
-								type={config.typePassword}
-								label="Your password" 
-								size='lg'
-								outline size="md"
-								icon="lock"
-								value={password}
-								onChange={this.onChange}
-							/>
-							<span className='EyePassword' onClick={()=>this.formAction('ICON-PASSWORD')}>
-								<FontAwesomeIcon icon={config.iconEye} />
-							</span>
-						</FormGroup>
-						<div className='text-center'>
-							<MDBBtn color='primary' onClick={()=>this.formAction('REGISTER')}  disabled={!config.enabled}> Sign Up </MDBBtn >
-						</div>
-						<br />
-						<div className='text-center'>
-							<p> Already have account ? <Link to="/signin"> Sign In </Link> </p>
-						</div>
-					</Form>
-					<ToastContainer
-			          hideProgressBar={true}
-			          newestOnTop={true}
-			          autoClose={5000}
-			        />
-					</ColCard>
-				</ContainerRow>
-			</div>
-		)
+		if(loading != true){
+			return(
+				<div className="SignUp">
+					<ContainerRow rowClass='justify-content-center'>
+						<ColCard lgCol='5' mdCol='8' smCol='10' colClass='mx-auto' brCard='mb-3' tlCard=''>
+						<Form>
+							 <p className="h4 text-center mb-4">Sign Up</p>
+							<FormGroup>
+								<MDBInput 
+									id="firstName"
+									label="First name" 
+									size='lg'
+									outline size="md"
+									icon="user"
+									value={firstName}
+									onChange={this.onChange}
+								/>	
+							</FormGroup>
+							<FormGroup>
+								<MDBInput 
+									id="lastName"
+									label="Last Name" 
+									size='lg'
+									outline size="md"
+									icon="user"
+									value={lastName}
+									onChange={this.onChange}
+								/>
+							</FormGroup>
+							<FormGroup>
+								<MDBInput 
+									id="email"
+									label="Your email" 
+									size='lg'
+									outline size="md"
+									icon='envelope'
+									value={email}
+									onChange={this.onChange}
+								/>
+							</FormGroup>
+							<FormGroup>
+								<MDBInput 
+									id="checkMail"
+									label="Confirm your email" 
+									size='lg'
+									onChange={this.onChange}
+									outline size="md"
+									value={checkMail}
+									icon="exclamation-triangle"
+									onChange={this.onChange}
+								/>
+							</FormGroup>
+							<FormGroup>
+								<MDBInput 
+									id="password"
+									type={config.typePassword}
+									label="Your password" 
+									size='lg'
+									outline size="md"
+									icon="lock"
+									value={password}
+									onChange={this.onChange}
+								/>
+								<span className='EyePassword' onClick={()=>this.formAction('ICON-PASSWORD')}>
+									<FontAwesomeIcon icon={config.iconEye} />
+								</span>
+							</FormGroup>
+							<div className='text-center'>
+								<MDBBtn color='primary' onClick={()=>this.formAction('REGISTER')}  disabled={!config.enabled}> Sign Up </MDBBtn >
+							</div>
+							<br />
+							<div className='text-center'>
+								<p> Already have account ? <Link to="/signin"> Sign In </Link> </p>
+							</div>
+						</Form>
+						<ToastContainer
+				          hideProgressBar={true}
+				          newestOnTop={true}
+				          autoClose={5000}
+				        />
+						</ColCard>
+					</ContainerRow>
+				</div>
+			)
+		}else{
+			return(
+				<div className="Loading text-center">
+					<img src={Loading} alt="loading"/>
+				</div>
+			)	
+		}
 	}
 }
 
