@@ -38,9 +38,9 @@ import ReactBootstrapTable from './../component/content/SampleDocument/'
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithubAlt, faGithub, faGoogle,  faFacebook,  faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';  
-import { faCaretSquareDown, faWindowClose, faUserCog, faSearch, faEnvelope, faCircleNotch, faUser, faUserTag, faQuestionCircle, faTrash, faEye, faEyeSlash, faEdit, faFileExcel,faBars, faTachometerAlt, faAngleRight, faBookOpen, faBookReader,faPowerOff } from '@fortawesome/free-solid-svg-icons'
+import { faFileAlt, faCity, faMap, faFlag, faFax, faUserTie, faCaretSquareDown, faWindowClose, faUserCog, faSearch, faEnvelope, faCircleNotch, faUser, faUserTag, faQuestionCircle, faTrash, faEye, faEyeSlash, faEdit, faFileExcel,faBars, faTachometerAlt, faAngleRight, faBookOpen, faBookReader,faPowerOff } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCaretSquareDown, faWindowClose, faUserCog, faGithubAlt, faGithub, faGoogle,  faFacebook,  faTwitter, faInstagram, faSearch, faEnvelope, faCircleNotch, faUser, faUserTag, faQuestionCircle, faTrash, faEye, faEyeSlash, faEdit, faFileExcel,faBars, faTachometerAlt, faAngleRight, faBookOpen, faBookReader,faPowerOff)
+library.add(faFileAlt, faCity, faMap, faFlag, faFax, faUserTie, faCaretSquareDown, faWindowClose, faUserCog, faGithubAlt, faGithub, faGoogle,  faFacebook,  faTwitter, faInstagram, faSearch, faEnvelope, faCircleNotch, faUser, faUserTag, faQuestionCircle, faTrash, faEye, faEyeSlash, faEdit, faFileExcel,faBars, faTachometerAlt, faAngleRight, faBookOpen, faBookReader,faPowerOff)
 
 class Routes extends Component {
   render() {

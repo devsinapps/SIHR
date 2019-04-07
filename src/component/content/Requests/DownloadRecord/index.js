@@ -1,12 +1,13 @@
 import React from 'react'
-import RequestsTable from './RequestsTable'
-import Loading from './../../../../assets/images/Loading.png'
+//tools
 import { Redirect } from 'react-router-dom'
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap'
-
+//assets
+import Loading from './../../../../assets/images/Loading.png'
+//Component
+import { RequestsTable } from './RequestsTable'
 //grid
 import { ContainerFluidRow, Card_B, Col_B, Collapsible } from './../../../grid/Custome-Grid'
-
 class RequestsRecord extends React.Component{
 	state = {
 		loading: true

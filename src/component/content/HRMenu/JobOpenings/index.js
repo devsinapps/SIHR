@@ -13,10 +13,10 @@ import { JOTable } from './JOTable'
 import { JOForm } from './JOForm'
 //mdbreact
 import { ToastContainer, toast } from 'mdbreact'
-
 class JobOpenings extends React.Component{
 	state = {
 		loading:true,
+		getCity: [],
 		id: '',
 		postingTitle: '',
 		accountManager: '',
@@ -46,6 +46,19 @@ class JobOpenings extends React.Component{
 			[e.target.id]: e.target.value
 		})
 	}
+
+	onChangeNumber = (e) => {
+		if(e.target.validity.valid){
+			this.setState({
+				[e.target.id]: e.target.value
+			})
+		}else if(e.target.value === '' || e.target.value === '-'){
+			this.setState({
+				[e.target.id]: e.target.value
+			})
+		}
+	}
+
 	notify = (type) => {
 		switch(type){
 			case "formEmpty":
@@ -64,7 +77,15 @@ class JobOpenings extends React.Component{
 
 	formAction = (mode, data) => {
 		const { id, postingTitle, accountManager, dateOpened, targetDate, jobType, jobStatus, country, city, stateProvince, zip, experience, skill, salary } = this.state
+		const parseSalary = parseInt(salary)
+		const parseZip = parseInt(zip)
 		switch(mode){
+			case 'GETCITY':
+				this.setState({
+					getCity: data.states
+				})
+				break;
+
 			case 'GETDATA':
 				this.setState({
 					id: data.id,
@@ -110,10 +131,10 @@ class JobOpenings extends React.Component{
 						country,
 						city,
 						stateProvince,
-						zip,
+						parseZip,
 						experience,
 						skill,
-						salary
+						parseSalary
 					}
 					this.props.inputJO(dataInput)
 					this.setState({
@@ -164,10 +185,10 @@ class JobOpenings extends React.Component{
 							country,
 							city,
 							stateProvince,
-							zip,
+							parseZip,
 							experience,
 							skill,
-							salary
+							parseSalary
 						}
 						this.props.updateJO(dataUpdate)
 						this.setState({
@@ -260,9 +281,9 @@ class JobOpenings extends React.Component{
 
 	render(){
 		const { loading } = this.state
-		const { postingTitle,accountManager,dateOpened,targetDate,jobType,jobStatus,country,city,stateProvince,zip,experience,skill,salary } = this.state
+		const { getCity, postingTitle,accountManager,dateOpened,targetDate,jobType,jobStatus,country,city,stateProvince,zip,experience,skill,salary } = this.state
 		const { dataRoutes } = this.props 
-		const value = { postingTitle,accountManager,dateOpened,targetDate,jobType,jobStatus,country,city,stateProvince,zip,experience,skill,salary };
+		const value = { getCity, postingTitle,accountManager,dateOpened,targetDate,jobType,jobStatus,country,city,stateProvince,zip,experience,skill,salary };
 		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
@@ -277,7 +298,9 @@ class JobOpenings extends React.Component{
 						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Create Job Openings'>
 							<JOForm 
 								value={value}
+								dataRoutes={dataRoutes}
 								onChange={this.onChange}
+								onChangeNumber={this.onChangeNumber}
 								formAction={this.formAction}
 							/>
 						</Collapsible>

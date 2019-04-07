@@ -1,8 +1,8 @@
 import React from 'react'
 import Loading from './../../../assets/images/Loading.png'
 //Component
-import FormUser from './FormUser'
-import TableUser from './TableUser'
+import { FormUser } from './FormUser'
+import { TableUser } from './TableUser'
 //Actions
 import { updateUser, deleteUser } from './../../../store/actions/usersActions'
 //Tools
@@ -11,7 +11,6 @@ import { Redirect } from 'react-router-dom'
 import { Container, Row, Col, Card, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap' 
 //Grid 
 import { ContainerFluidRow, ColCard, Col_B, Card_B, Collapsible } from './../../grid/Custome-Grid'
-
 class DataUsers extends React.Component{
 	state = {
 		loading: true,

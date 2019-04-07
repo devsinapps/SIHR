@@ -5,8 +5,7 @@ import moment from 'moment'
 import { Table } from 'reactstrap'
 //mdbreact
 import { MDBDataTable } from 'mdbreact';
-
-const TableUser = ({dataRoutes, formAction}) => {
+export const TableUser = ({dataRoutes, formAction}) => {
 	const users = dataRoutes.firestore.ordered.users
 	let no = 1
 	const data = {
@@ -68,5 +67,3 @@ const TableUser = ({dataRoutes, formAction}) => {
 	    />
 	)
 }
-
-export default TableUser

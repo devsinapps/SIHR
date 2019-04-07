@@ -13,7 +13,7 @@ export const inputC = (dataInput) => {
 			secondaryEmail: dataInput.secondaryEmail,
 			fax: dataInput.fax,
 			street: dataInput.street,
-			zip: dataInput.zip,
+			zip: dataInput.parseZip,
 			city: dataInput.city,
 			stateProvince: dataInput.stateProvince,
 			country: dataInput.country,
@@ -21,8 +21,8 @@ export const inputC = (dataInput) => {
 			highQualification: dataInput.highQualification,
 			jobTitle: dataInput.jobTitle,
 			currentEmployer: dataInput.currentEmployer,
-			salary: dataInput.salary,
-			currentSalary: dataInput.currentSalary,
+			salary: dataInput.parseSalary,
+			currentSalary: dataInput.parseCSalary,
 			skill: dataInput.skill,
 			additionalInfo: dataInput.additionalInfo	
 		}).then(()=>{
@@ -64,7 +64,7 @@ export const updateC = (dataUpdate) => {
 			secondaryEmail: dataUpdate.secondaryEmail,
 			fax: dataUpdate.fax,
 			street: dataUpdate.street,
-			zip: dataUpdate.zip,
+			zip: dataUpdate.parseZip,
 			city: dataUpdate.city,
 			stateProvince: dataUpdate.stateProvince,
 			country: dataUpdate.country,
@@ -72,8 +72,8 @@ export const updateC = (dataUpdate) => {
 			highQualification: dataUpdate.highQualification,
 			jobTitle: dataUpdate.jobTitle,
 			currentEmployer: dataUpdate.currentEmployer,
-			salary: dataUpdate.salary,
-			currentSalary: dataUpdate.currentSalary,
+			salary: dataUpdate.parseSalary,
+			currentSalary: dataUpdate.parseCSalary,
 			skill: dataUpdate.skill,
 			additionalInfo: dataUpdate.additionalInfo	
 		}).then(()=>{

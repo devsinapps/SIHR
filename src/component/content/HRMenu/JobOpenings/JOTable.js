@@ -108,7 +108,7 @@ export const JOTable = ({dataRoutes, formAction}) => {
 			        zip: data.zip,
 			        experience: data.experience,
 			        skill: data.skill,
-			        salary: data.salary
+			        salary: 'Rp.'+ (data.salary).toLocaleString()
 	    		}
 	    	)
     	})

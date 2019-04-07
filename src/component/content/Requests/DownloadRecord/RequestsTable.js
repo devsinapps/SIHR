@@ -1,12 +1,12 @@
 import React from 'react'
-import { Table } from 'reactstrap'
+//tools
 import moment from 'moment'
 import ReactToExcel from 'react-html-table-to-excel'
+//fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //mdbreact
 import { MDBDataTable } from 'mdbreact';
-
-const RequestsTable = ({dataRoutes}) => {
+export const RequestsTable = ({dataRoutes}) => {
 	const requests = dataRoutes.firestore.ordered.requests
 	const excel = <FontAwesomeIcon icon="file-excel" />
 	let no = 1
@@ -34,13 +34,13 @@ const RequestsTable = ({dataRoutes}) => {
 				label: 'Description',
 		        field: 'description',
 		        sort: 'asc',
-		        width: 250
+		        width: 550
 			},
 			{
 				label: 'RequestDate',
 		        field: 'requestDate',
 		        sort: 'asc',
-		        width: 100
+		        width: 150
 			},
 			{
 				label: 'Done Date',
@@ -93,5 +93,3 @@ const RequestsTable = ({dataRoutes}) => {
 		</div>
 	)
 }
-
-export default RequestsTable

@@ -1,18 +1,27 @@
 import React, {Component} from 'react'
-import CreateInformation from './CreateInformation'
-import InformationSummary from './InformationSummary'
-import { Redirect } from 'react-router-dom'
+//Assets
 import Profile from './../../../assets/images/default.png'
 import Loading from './../../../assets/images/Loading.png'
+//Tools
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+//Actions
+import {createInformation} from './../../../store/actions/informationActions'
+//Component
+import { CreateInformation } from './CreateInformation'
+import { InformationSummary } from './InformationSummary'
+//Fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-//Style
+//reactstrap
 import { Row, Breadcrumb, BreadcrumbItem, CardTitle } from 'reactstrap'
 //grid 
 import { ContainerFluidRow, ColCard, Col_B, Card_B } from './../../grid/Custome-Grid'
 class Dashboard extends Component{
 	state = {
-		isExpanded: false
+		isExpanded: false,
+		title: '',
+		date: '',
+		content: ''
 	}
 
 	componentDidMount(){
@@ -22,13 +31,42 @@ class Dashboard extends Component{
 			})
 		}, 3000)
 	}
+
+	onChange = (e) => {
+		this.setState({
+			[e.target.id]: e.target.value
+		})
+	}
+
+	formAction = (mode, data) => {
+		const { title, date, content } = this.state
+		switch(mode){
+			case 'SAVE':
+				const dataInput = { title, date, content }
+				this.props.createInformation(dataInput)
+				this.setState({
+					title: '',
+					date: '',
+					content: ''
+				})
+				break;
+
+			default:
+				return null
+		}
+	}
 	render(){
-		const { isExpanded } = this.state
+		const { isExpanded, title, date, content } = this.state
 		const { dataRoutes } = this.props 
+		const value = { isExpanded, title, date, content }
 		const config = {
 			PostingPlace: dataRoutes.firebase.profile.level === 1 ? 
 				<Card_B brCard='mb-3' tlCard='Posting'>
-					<CreateInformation />
+					<CreateInformation 
+						value={value}
+						onChange={this.onChange}
+						formAction={this.formAction}
+					/>
 				</Card_B>
 				:
 				null
@@ -95,4 +133,10 @@ class Dashboard extends Component{
 	}
 }
 
-export default Dashboard
+const mapDispatchToProps = (dispatch) => {
+	return{
+		createInformation: (dataInput) => dispatch(createInformation(dataInput))
+	}
+}
+
+export default connect(null, mapDispatchToProps)(Dashboard)

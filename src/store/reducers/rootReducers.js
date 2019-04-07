@@ -1,4 +1,4 @@
-import dummyReducer from './dummyReducer'
+import dataReducer from './dataReducer'
 import authReducers from './authReducers'
 import employeeReducers from './employeeReducers'
 import kanbanReducers from './kanbanReducers'
@@ -25,8 +25,7 @@ const rootReducers = combineReducers({
 	Candidate: CandidateReducers,
 	interviews: interviewsReducers,
 	task: taskReducers,
-	dummy: dummyReducer,
-	
+	data: dataReducer
 })
 
 export default rootReducers

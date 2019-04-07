@@ -1,12 +1,13 @@
 import React from 'react'
 //Tools
 import ReactToExcel from 'react-html-table-to-excel'
-
+//reactstrap
 import { Table } from 'reactstrap'
+//fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//mdbreact
 import { MDBDataTable } from 'mdbreact';
-
-const EmployeeTable = ({dataRoutes, formAction}) => {
+export const EmployeeTable = ({dataRoutes, formAction}) => {
 	const employees = dataRoutes.firestore.ordered.employees
 	const excel = <FontAwesomeIcon icon="file-excel" />
 	let no = 1
@@ -136,5 +137,3 @@ const EmployeeTable = ({dataRoutes, formAction}) => {
 		</div>
 	)
 }
-
-export default EmployeeTable

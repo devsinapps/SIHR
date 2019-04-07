@@ -1,5 +1,4 @@
 import React from 'react'
-
 //mdbreact
 import { MDBDataTable } from 'mdbreact'
 export const TaskTable = ({dataRoutes, formAction}) => {

@@ -1,14 +1,14 @@
 import React from 'react'
 import Loading from './../../../assets/images/Loading.png'
-//Tools
+//actions
 import { createRequests, deleteRequests, updateRequests } from './../../../store/actions/requestsActions'
-//Component
-import CreateRequests from './CreateRequests'
-import RequestsSummary from './RequestsSummary'
+//tools
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { firestoreConnect } from 'react-redux-firebase'  
+//Component
+import { CreateRequests } from './CreateRequests'
+import { RequestsSummary } from './RequestsSummary'
+//reactstrap
 import { Row, Breadcrumb, BreadcrumbItem } from 'reactstrap'
 //Grid
 import { ContainerFluidRow, ColCard, Col_B, Card_B } from './../../grid/Custome-Grid'

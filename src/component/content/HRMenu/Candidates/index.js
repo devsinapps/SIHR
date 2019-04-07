@@ -18,6 +18,7 @@ const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(
 class Candidates extends React.Component{
 	state = {
 		loading:true,
+		getCity: [],
 		id: '',
 		email: '',
 		firstname: '',
@@ -56,6 +57,18 @@ class Candidates extends React.Component{
 		})
 	}
 
+	onChangeNumber = (e) => {
+		if(e.target.validity.valid){
+			this.setState({
+				[e.target.id]: e.target.value
+			})
+		}else if(e.target.value === '' || e.target.value === '-'){
+			this.setState({
+				[e.target.id]: e.target.value
+			})
+		}
+	}
+
 	notify = (type) => {
 		switch(type){
 			case "formEmpty":
@@ -80,8 +93,17 @@ class Candidates extends React.Component{
 	}
 
 	formAction = (mode, data) => {
-		const { id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo } = this.state
+		const { id,	email, firstname, phone, lastname, website, mobile,	secondaryEmail,	fax, street, zip, city, stateProvince, country, experience,	highQualification,	jobTitle, currentEmployer, salary, currentSalary, skill, additionalInfo } = this.state
+		const parseSalary = parseInt(salary)
+		const parseCSalary = parseInt(currentSalary)
+		const parseZip = parseInt(zip)
 		switch(mode){
+			case 'GETCITY':
+				this.setState({
+					getCity: data.states
+				})
+				break;
+
 			case 'GETDATA':
 				this.setState({
 					id: data.id,
@@ -132,7 +154,7 @@ class Candidates extends React.Component{
 					skill.length < 1 ||
 					additionalInfo.length < 1){
 					this.notify('formEmpty')
-				}else if(!regex.test(email)){
+				}else if(!regex.test(email) || !regex.test(secondaryEmail)) {
 					this.notify('emailNotValid')
 				}else{
 					const dataInput = {
@@ -146,15 +168,15 @@ class Candidates extends React.Component{
 						fax,
 						street,
 						zip,
-						city,
+						parseZip,
 						stateProvince,
 						country,
 						experience,
 						highQualification,
 						jobTitle,
 						currentEmployer,
-						salary,
-						currentSalary,
+						parseSalary,
+						parseCSalary,
 						skill,
 						additionalInfo
 					}
@@ -226,7 +248,7 @@ class Candidates extends React.Component{
 							secondaryEmail,
 							fax,
 							street,
-							zip,
+							parseZip,
 							city,
 							stateProvince,
 							country,
@@ -234,8 +256,8 @@ class Candidates extends React.Component{
 							highQualification,
 							jobTitle,
 							currentEmployer,
-							salary,
-							currentSalary,
+							parseSalary,
+							parseCSalary,
 							skill,
 							additionalInfo
 						}
@@ -366,8 +388,8 @@ class Candidates extends React.Component{
 	render(){
 		const { loading } = this.state
 		const { dataRoutes } = this.props 
-		const { id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo } = this.state
-		const value = { id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo }
+		const { getCity, id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo } = this.state
+		const value = { getCity, id,	email,	firstname,	phone,	lastname,	website,	mobile,	secondaryEmail,	fax,	street,	zip,	city,	stateProvince,	country,	experience,	highQualification,	jobTitle,	currentEmployer,	salary,	currentSalary,	skill,	additionalInfo }
 		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
@@ -382,7 +404,9 @@ class Candidates extends React.Component{
 						<Collapsible lgCol='12' mdCol='12' smCol='12' brCard='mb-3' tlCard='Create Candidate'>
 							<CForm 
 								value={value}
+								dataRoutes={dataRoutes}
 								onChange={this.onChange}
+								onChangeNumber={this.onChangeNumber}
 								formAction={this.formAction}
 							/>
 						</Collapsible>

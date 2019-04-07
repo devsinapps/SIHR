@@ -3,15 +3,14 @@ import Loading from './../../../assets/images/Loading.png'
 //Actions
 import {deleteKanban, updateKanban, inputKanban} from './../../../store/actions/kanbanActions'
 //Component
-import CreateKanban from './CreateKanban'
-import KanbanSummary from  './KanbanSummary'
+import { CreateKanban } from './CreateKanban'
+import { KanbanSummary } from  './KanbanSummary'
 //Tools
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Container, Row, Col, Card, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap'
 //grid 
 import { ContainerFluidRow, ColCard, Col_B, Card_B } from './../../grid/Custome-Grid'
-
 class Kanban extends React.Component{
 	state = {
 		modal: false,

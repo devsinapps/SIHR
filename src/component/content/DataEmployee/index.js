@@ -2,8 +2,8 @@ import React from 'react'
 //Actions
 import {inputEmployee, deleteEmployee, updateEmployee} from './../../../store/actions/employeeActions'
 //Component
-import EmployeeTable from './EmployeeTable'
-import EmployeeForm from './EmployeeForm'
+import { EmployeeTable } from './EmployeeTable'
+import { EmployeeForm } from './EmployeeForm'
 //Tools
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -206,7 +206,7 @@ class DataEmployee extends React.Component{
 		const { dataRoutes } = this.props
 		const {  loading, id , firstName, lastName, age, address, idCard, gender, dob, pob, dateJoin, division, status, active} = this.state
 		const value = { id , firstName, lastName, age, address, idCard, gender, dob, pob, dateJoin, division, status, active }
-		// if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
+		if(dataRoutes.firebase.auth.uid == null) return <Redirect to='/signin' />;
 		if(loading != true){
 			return(
 				<div className="DataEmployee">

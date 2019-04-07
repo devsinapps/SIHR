@@ -467,19 +467,29 @@ html body {
       html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
         text-align: center; }
       html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
-        color: #3b3d45; }
+        color: #3b3d45;
+        text-align: center; }
+      html body #root .App .Content .JobOpenings .container-fluid .row .col-lg-12 .card .card-body form .form-row .col-lg-6 .form-group .md-form label {
+        padding-left: 18px; }
       html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
         text-align: center; }
       html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
-        color: #3b3d45; }
+        color: #3b3d45;
+        text-align: center; }
+      html body #root .App .Content .Candidates .container-fluid .row .col-lg-12 .card .card-body form .form-row .col-lg-6 .form-group .md-form label {
+        padding-left: 18px; }
       html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
         text-align: center; }
       html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
         color: #3b3d45; }
+      html body #root .App .Content .Interviews .container-fluid .row .col-lg-12 .card .card-body form .form-row .col-lg-6 .form-group .md-form label {
+        padding-left: 18px; }
       html body #root .App .Content .Task .container-fluid .row .col-lg-12 .card .card-body table thead tr th {
         text-align: center; }
       html body #root .App .Content .Task .container-fluid .row .col-lg-12 .card .card-body table tbody tr td {
         color: #3b3d45; }
+      html body #root .App .Content .Task .container-fluid .row .col-lg-12 .card .card-body form .form-row .col-lg-6 .form-group .md-form label {
+        padding-left: 18px; }
     html body #root .App .Content_Slider {
       left: 0; }
     html body #root .App .Content-Auth {

@@ -13,10 +13,10 @@ export const inputJO = (dataInput) => {
 			country: dataInput.country,
 			city: dataInput.city,
 			stateProvince: dataInput.stateProvince,
-			zip: dataInput.zip,
+			zip: dataInput.parseZip,
 			experience: dataInput.experience,
 			skill: dataInput.skill,
-			salary: dataInput.salary
+			salary: dataInput.parseSalary
 		}).then(()=>{
 			dispatch({
 				type: "INPUT_JOB_SUCCESS"
@@ -56,10 +56,10 @@ export const updateJO = (dataUpdate) => {
 			country: dataUpdate.country,
 			city: dataUpdate.city,
 			stateProvince: dataUpdate.stateProvince,
-			zip: dataUpdate.zip,
+			zip: dataUpdate.parseZip,
 			experience: dataUpdate.experience,
 			skill: dataUpdate.skill,
-			salary: dataUpdate.salary
+			salary: dataUpdate.parseSalary
 		}).then(()=>{
 			dispatch({
 				type: "UPDATE_JOB_SUCCESS"
