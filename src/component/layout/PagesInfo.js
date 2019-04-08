@@ -5,12 +5,13 @@ import imgProfile from './../../assets/images/default.png'
 import {signOut} from './../../store/actions/authActions'
 //Tools
 import { connect } from 'react-redux'
+import moment from 'moment'
 //Grid
-import { ContainerFluidRow, Col_B } from './../grid/Custome-Grid'
+import { ContainerFluidRow, Col_B, ColCard, Multipage } from './../grid/Custome-Grid'
 //Reactstrap
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap'
 //mdbreact
-import { MDBBtn } from 'mdbreact'
+import { MDBBtn, MDBCardTitle, MDBIcon } from 'mdbreact'
 //Fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -30,28 +31,24 @@ class PagesInfo extends React.Component{
 				</div>
 				<div className='Pages-Menu'>
 					<ContainerFluidRow>
-						<Col_B lgCol='3' mdCol='3' smCol='12'>	
+						<ColCard lgCol='3' mdCol='3' smCol='12' brCard='mb-3' tlCard=''>	
 							<img src={imgProfile} alt='imgProfile' />
-						</Col_B>
-						<Col_B lgCol='6' mdCol='6' smCol='12'>
-							<ul>
-								<li> 
-									<FontAwesomeIcon icon='user-tag' />
-									<span> {dataRoutes.firebase.profile.firstName + ' ' + dataRoutes.firebase.profile.lastName} </span>
-								</li>
-								<li> 
-									<FontAwesomeIcon icon='envelope' />
-									<span> {dataRoutes.firebase.profile.email} </span> 
-								</li>
-							</ul>
-						</Col_B>
-						<Col_B lgCol='3' mdCol='3' smCol='12'>
+						</ColCard>
+						<ColCard lgCol='6' mdCol='6' smCol='12' brCard='mb-3' tlCard=''>
+							<MDBCardTitle> {dataRoutes.firebase.profile.firstName + ' ' + dataRoutes.firebase.profile.lastName} </MDBCardTitle>
+							<Multipage title1='Email' title2='Level' title3='Join Date'>
+								<p> <MDBIcon icon="envelope" /> {dataRoutes.firebase.profile.email} </p>
+								<p> <MDBIcon icon="chalkboard-teacher" /> {dataRoutes.firebase.profile.level} </p>
+								<p> <MDBIcon icon="calendar-check" /> {moment(dataRoutes.firebase.profile.joinDate && dataRoutes.firebase.profile.joinDate.toDate().toString()).format("MMM Do YY")} </p>
+							</Multipage>
+						</ColCard>
+						<ColCard lgCol='3' mdCol='3' smCol='12' brCard='mb-3' tlCard=''>
 							<ul>
 								<li> 
 									<MDBBtn color='info' size='sm'  onClick={this.props.signOut}> Sign Out </MDBBtn>
 								</li>
 							</ul>
-						</Col_B>
+						</ColCard>
 					</ContainerFluidRow> 
 					<ContainerFluidRow>
 						<Col_B lgCol='12' mdCol='12' smCol='12'>	

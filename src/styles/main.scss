@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Oxygen');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 %ul-reset{
 	list-style-type: none;
@@ -9,6 +10,12 @@
 %li-style-inline{
 	display: inline-block;
 	margin-right: 15px;
+}
+
+%card-reset{
+	box-shadow: none;
+
+	height: 100%;
 }
 
 %breadcrumb-style{
@@ -49,7 +56,7 @@
 
 html{
 	body{
-		font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 		background-color: #ecf0f1;
 		#root{
 			.App{
@@ -247,6 +254,7 @@ html{
 						transition: all .2s;
 						background-color: rgba(0,0,0,.8);
 						width: 100%;
+						overflow: auto;
 					}
 					.Pages-Toggle-Slider{
 						display: block;
@@ -256,9 +264,10 @@ html{
 						right: 0;
 						top: 50px;
 						z-index: 9999;
-						width: 50%;
-						right: -50%;
+						width: 55%;
+						right: -55%;
 						height: 100vh;
+						overflow: auto;
 						transition: all .3s;
 						background-color: #fdfdfd;
 						.container-fluid:nth-child(1){
@@ -266,35 +275,64 @@ html{
 							.row{
 								.col-lg-3{
 									text-align: center;
-									img{
-										width: 100px;
-										height: 100px;
-										border-radius: 50%;
+									.card{
+										@extend %card-reset;
+										.card-body{
+											img{
+												width: 100px;
+												height: 100px;
+												border-radius: 50%;
+											}
+										}
 									}
 								}
 								.col-lg-6{
-									ul{
-										@extend %ul-reset;
-										padding-top: 20px;
-										li{
-											svg{
-												margin-right: 5px;
-											}
-											span{
-												font-size: 20px;
+									.card{
+										@extend %card-reset;
+										.card-body{
+											.Multipage{
+												ul{
+													@extend %ul-reset;
+													li{
+														display: inline-block;
+														margin: 10px;
+														padding: 5px 10px 5px 10px;
+														border-radius: 15px;
+														border: 1px solid #3498db;
+														cursor: pointer;
+														font-size: 12px;
+														transition: all .2s;
+														&:hover{
+															background-color: #3498db;
+															color: #ffffff;
+														}
+													}
+												}
+												div{
+													font-size: 20px;
+													i{
+														font-size: 20px;
+														color: #3498db;
+													}
+												}
 											}
 										}
 									}
 								}
 								.col-lg-3{
-									ul{
-										@extend %ul-reset;
-										position: absolute;
-										bottom: 0;
-										right: 20px;
-										li{
-											span{
-												cursor: pointer;
+									.card{
+										@extend %card-reset;
+										.card-body{
+											ul{
+												@extend %ul-reset;
+												position: absolute;
+												bottom: 0;
+												right: 20px;
+												li{
+													button{
+														margin: auto;
+													}
+												}
 											}
 										}
 									}
@@ -302,6 +340,7 @@ html{
 							}
 						}
 						.container-fluid:nth-child(2){
+							padding-bottom: 100px;
 							.row{
 								.col-lg-12{
 									nav{
@@ -322,7 +361,7 @@ html{
 											margin: 20px;
 											a{
 												svg{
-													font-size: 50px;
+													font-size: 35px;
 													color: #2c3e50;
 												}
 											}
@@ -370,8 +409,8 @@ html{
 														padding-top: 10px;
 														padding-bottom: 10px;
 														img{
-															height: 150px;
-															width: 150px;
+															height: 125px;
+															width: 125px;
 															border-radius: 50%;
 															transition: all .3s;
 															&:hover{
@@ -387,7 +426,7 @@ html{
 																margin-right: 10px;	
 															}
 															span{
-																font-size: 20px;
+																font-size: 15px;
 															}
 														}
 														
@@ -1196,6 +1235,7 @@ html{
 				.App{
 					.SideNav{
 						.LeftSide{
+							left: -230px;
 							._Header{
 								h1{
 								}
@@ -1249,11 +1289,13 @@ html{
 							}
 						}
 						.LeftSide_Slider{
+							left: 0;
 						}
 						.RightSide{
 						}
 					}
 					.TopNav{
+						left: 0;
 						.Navbar-Left{
 							ul{
 								li{
@@ -1280,6 +1322,7 @@ html{
 						}
 					}
 					.TopNav_Slider{
+						 left: 230px;
 					}
 					.PagesInfo{
 						.Pages-Toggle{
@@ -1346,6 +1389,7 @@ html{
 						}
 					}
 					.Content{
+						left: 0;
 						.Loading{
 							img{
 							}
@@ -1692,6 +1736,576 @@ html{
 						}
 					}
 					.Content_Slider{
+						left: 240px;
+					}
+					.Content-Auth{
+						.SignIn{
+							padding-top: 15%;
+							.container{
+								.row{
+									.col-lg-5{
+										.card{
+											.card-body{
+												form{
+													p{
+
+													}
+													.form-group{
+														.EyePassword{
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.SignUp{
+							padding-top: 15%;
+							.container{
+								.row{
+									.col-lg-5{
+										.card{
+											.card-body{
+												form{
+													p{
+
+													}
+													.form-group{
+														position: relative;
+														.EyePassword{
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.Btn_Modal{
+				&:hover{
+				}
+			}
+			.LabelModal{
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 712px){
+	html{
+		body{
+			#root{
+				.App{
+					.SideNav{
+						.LeftSide{
+							left: -230px;
+							._Header{
+								h1{
+								}
+							}
+							._mainMenu{
+								ul{
+									li{
+										&:hover{
+										}
+										svg{
+										}
+										a{
+											&:hover{
+											}
+										}
+									}
+									.Dropdown{
+										&.active{
+										}
+										li{	
+											&:hover .dropdownIcon{
+											}
+											&.active{
+											}
+											&.active .dropdownIcon{
+											}
+											svg{
+											}
+											a{
+											}
+											.dropdownIcon{
+											}
+										}
+										.DropdownMenu{
+											._Menu{
+												ul{
+													li{
+														&:hover{
+														}
+														svg{
+
+														}
+														a{
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.LeftSide_Slider{
+							left: 0;
+						}
+						.RightSide{
+						}
+					}
+					.TopNav{
+						left: 0;
+						.Navbar-Left{
+							ul{
+								li{
+									svg{
+									}
+									.input-group{
+										display: none;
+									}
+								}
+							}
+						}
+						.Navbar-Right{
+							ul{
+								li{
+									&:hover{
+									}
+									svg{
+										display: none;
+									}
+									img{
+									}
+								}
+							}
+						}
+					}
+					.TopNav_Slider{
+						 left: 230px;
+					}
+					.PagesInfo{
+						.Pages-Toggle{
+						}
+						.Pages-Toggle-Slider{
+						}
+						.Pages-Menu{
+							width: 90%;
+							right: -90%;
+							.container-fluid:nth-child(1){
+								.row{
+									.col-lg-3{
+										img{
+										}
+									}
+									.col-lg-6{
+										ul{
+											li{
+												svg{
+												}
+												span{
+												}
+											}
+										}
+									}
+									.col-lg-3{
+										ul{
+											li{
+												span{
+												}
+											}
+										}
+									}
+								}
+							}
+							.container-fluid:nth-child(2){
+								.row{
+									.col-lg-12{
+										nav{
+											ol{
+												li{
+													
+													a{
+														
+													}
+												}
+											}
+										}
+										ul{
+											li{
+												a{
+													svg{
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							
+						}
+						.Pages-Menu-Slider{
+							right: 0;
+						}
+					}
+					.Content{
+						left: 0;
+						.Loading{
+							img{
+							}
+						}
+						.Dashboard{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.row{
+											.col-lg-4{
+												.card:nth-child(1){
+													.card-body{
+														.ProfilePict{
+															img{
+																&:hover{
+																}
+															}	
+														}
+														ul{
+															li{
+																svg{
+																}
+																span{
+																}
+															}
+														}
+													}
+													.card-footer{
+													}
+												}
+												.card:nth-child(2){
+													.card-header{
+													}	
+													.card-body{
+														form{
+															.form-group{
+																label{
+																}
+																input{
+																	&:focus{
+																	}
+																}
+																textarea{
+																	&:focus{
+																	}
+																}
+																button{
+																}
+															}
+														}
+													}
+												}
+											}
+											.col-lg-8{
+												.row{
+													.col-lg-12:nth-child(1){
+														.card{
+															.card-header{
+															}
+														}
+													}	
+													.col-lg-12:nth-child(2){
+														.InformationSummary{
+															.card{
+																.card-body{
+																	.card-title{
+																	}
+																	.card-text{
+																	}
+																}
+																.card-footer{
+																	small{
+																		span{
+																		}
+																	}
+
+																}
+																.PinLogo{
+																	img{
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.DataEmployee{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.card{
+											.card-header{
+											}
+											.card-body{
+												.TableEmployee{
+													table{
+														thead{
+															tr{
+																th{
+																}
+															}
+														}
+														tbody{
+															tr{
+																td{
+																}
+															}
+														}
+													}
+													.ExportButton{
+														._Button{
+															&:active{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						
+						.KanBan{
+							.container-fluid{
+								.row{
+									.col-lg-12:nth-child(1){
+										nav{
+										}
+										.card{
+											.card-body{
+												.CreateKanban{
+													form{
+														.form-row{
+															.col-md-3{
+																.form-group{
+																	.labelForm{
+																	}
+																	input{
+																		&:focus{
+																		}
+
+																		&:focus ~.labelForm{
+																		}
+																	}
+																	
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+									.col-lg-12:nth-child(2){
+										.row{
+											.col-lg-4{
+												.card{
+													.card-body{
+														.card-title{
+														}
+														.card-text{
+														}	
+														small{
+															span{
+															}
+														}
+														.Status{
+															a{
+															}
+														}
+														.ActionBtn{
+															svg{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.Requests{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+									}
+									.col-lg-12{
+										.row{
+											.col-lg-4{
+												.row{
+													.col-lg-12{
+														.card{
+															.card-body{
+																.CreateRequests{
+																	form{
+																		.form-group{
+																			label{
+																			}
+																			input{
+																				&:focus{
+																				}
+
+																				&:focus ~.labelForm{
+																				}
+																			}
+																			textarea{
+																				&:focus{
+																				}
+
+																				&:focus ~.labelForm{
+																				}
+																			}
+																			select{
+																				&:focus{
+																				}
+
+																				&:focus ~.labelForm{
+																				}
+																			}
+																			button{
+																				
+																			}
+																		}
+																	}
+																}	
+															}
+														}
+													}
+												}
+											}
+											.col-lg-8{
+												.row{
+													.col-lg-12{
+														.card{
+															.card-body{
+																.card-title{
+																}
+																.card-text{
+																}
+																small{
+																	span{
+																	}
+																}
+																.Blank_Spot{
+																}
+																.Status{
+																	a{
+																	}
+																}
+																.ActionBtn{
+																	svg{
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.RequestsRecord{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.card{
+											.card-body{
+												._Table{
+													table{
+														thead{
+															tr{
+																th{
+																}
+															}
+														}
+														tbody{
+															tr{
+																td{
+																	color: #3b3d45;
+																	text-align: center;
+																}
+															}
+														}
+													}
+													.ExportButton{
+														._Button{
+															&:active{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.DataUsers{
+							.container-fluid{
+								.row{
+									.col-lg-12{
+										nav{
+										}
+										.card{
+											.card-header{
+											}
+											.card-body{
+												table{
+													thead{
+														tr{
+															th{
+															}
+														}
+													}
+													tbody{
+														tr{
+															td{
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.Content_Slider{
+						left: 240px;
 					}
 					.Content-Auth{
 						.SignIn{

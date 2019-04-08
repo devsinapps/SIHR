@@ -211,3 +211,128 @@ export class Accordion extends React.Component{
 		)
 	}
 }
+
+export class Multipage extends React.Component{
+	state = {
+		page: 1
+	}
+
+	toggle = (mode) => {
+		switch(mode){
+			case 1:
+				this.setState({
+					page: 1
+				})
+				break;
+
+			case 2:
+				this.setState({
+					page: 2
+				})
+				break;
+
+			case 3:
+				this.setState({
+					page: 3
+				})
+				break;
+
+			case 4:
+				this.setState({
+					page: 4
+				})
+				break;
+
+			case 5:
+				this.setState({
+					page: 5
+				})
+				break;
+
+			case 6:
+				this.setState({
+					page: 6
+				})
+				break;
+
+			default:
+				return null
+
+		}
+	}
+	render(){
+		const { page } = this.state
+		const { title1, title2, title3, title4, title5, title6, children } = this.props
+		return(
+			<div className='Multipage'>
+				<ul>
+					<li onClick={()=>this.toggle(1)}> {title1} </li>
+					<li onClick={()=>this.toggle(2)}> {title2} </li>
+					<li onClick={()=>this.toggle(3)}> {title3} </li>
+				</ul>
+				<Multipage_Case 	
+					page={page}
+					children={children}
+				/>
+			</div>
+		)
+	}
+}
+
+export class Multipage_Case extends React.Component{
+	render(){
+		const { page, children } = this.props
+		switch(page){
+			case 1:
+				return(
+					<div>
+						{children[0].props.children}
+					</div>
+				)
+				break;
+
+			case 2:
+				return(
+					<div>
+						{children[1].props.children}
+					</div>
+				)
+				break;
+
+			case 3:
+				return(
+					<div>
+						{children[2].props.children}
+					</div>
+				)
+				break;
+
+			case 4:
+				return(
+					<div>
+						{children[3].props.children}
+					</div>
+				)
+				break;
+
+			case 5:
+				return(
+					<div>
+						{children[4].props.children}
+					</div>
+				)
+				break;
+
+			case 6:
+				return(
+					<div>
+						{children[5].props.children}
+					</div>
+				)
+				break;
+
+			default:
+				return null
+		}
+	}
+}

@@ -18,9 +18,18 @@ class SideNav extends React.Component{
 	}
 	render(){
 		const { isExpanded } = this.state
-		const { level } = this.props
+		const { dataRoutes } = this.props
+		const level = dataRoutes.firebase.profile.level
 		const config = {
-			active: isExpanded ? 'active' : ''
+			active: isExpanded ? 'active' : '',
+			adminMenu: level === 1 ? (  <li onClick={this.toggleCollapse('adminMenu')}>
+											<FontAwesomeIcon icon='book-open' />
+											<a className='titleDropdown'> Admin Menu </a> 
+											<FontAwesomeIcon icon="angle-right" className='dropdownIcon'/>
+										</li> 
+									 )
+									 :
+									 null
 		}
 		return(
 			<div className='SideNav'>
@@ -77,11 +86,7 @@ class SideNav extends React.Component{
 										</li>
 									</ul>
 								</MDBCollapse>
-								<li onClick={this.toggleCollapse('adminMenu')}>
-									<FontAwesomeIcon icon='book-open' />
-									<a className='titleDropdown'> Admin Menu </a> 
-									<FontAwesomeIcon icon="angle-right" className='dropdownIcon'/>
-								</li>
+								{config.adminMenu}
 								<MDBCollapse id='adminMenu' className='AccordionMenu' isOpen={this.state.collapseID}>
 									<ul>
 										<li> 
@@ -109,12 +114,6 @@ class SideNav extends React.Component{
 	}
 }
 
-const mapStateToProps = (state) => {
-	return{
-		level: state.firebase.profile.level
-	}
-}
-
-export default connect(mapStateToProps)(SideNav)
+export default SideNav
 
 
